@@ -1,0 +1,41 @@
+// or browse Examples
+
+`timescale 1ns/1ps
+module testimmge;
+  logic [31:0] inst;
+  logic [31:0] pcvalue;
+  logic [1:0] immsel;
+  logic [31:0] iorjalr;
+  logic [31:0] s;
+  logic [31:0] u;
+  logic [31:0] jal;
+  logic [31:0] branch;
+  immgen ig(
+    .inst(inst),.pcvalue(pcvalue),
+    .immsel(immsel),.iorjalr(iorjalr),
+    .s(s),.u(u),.jal(jal),.branch(branch));
+  initial begin
+    $dumpvars(0);
+    inst=32'h00300513;//i
+    pcvalue=32'd0;
+    immsel=2'd0;
+    #10
+    inst=32'h00a005b3;//r
+    pcvalue=32'b100;
+    immsel=2'b11;
+    #10
+    inst=32'h00b50463;//b
+    pcvalue=32'b1000;
+    immsel=2'b11;
+    #10
+    inst=32'h00150513;//i
+    pcvalue=32'b10000;
+    immsel=2'b00;
+    #10
+    inst=32'hff5ff0ef;//jal
+    pcvalue=32'b10100;
+    immsel=2'b11;
+    #10
+    $finish;
+  end
+endmodule

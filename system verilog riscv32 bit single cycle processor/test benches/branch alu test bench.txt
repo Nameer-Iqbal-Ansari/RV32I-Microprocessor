@@ -1,0 +1,38 @@
+// Code your testbench here
+`timescale 1ns/1ps
+module testbalu;
+  logic [0:31] rs1;
+  logic [0:31] rs2;
+  logic [0:2] func210;
+  logic branchtrue;
+  branchalu balu1(
+    .rs1(rs1),.rs2(rs2),.func210(func210),.branchtrue(branchtrue));
+  initial begin
+    $dumpvars(0);
+    rs1=32'b11111111111111111111111111111111;//beq
+    rs2=32'd2;
+    func210=3'b000;
+    #2
+    rs1=32'b11111111111111111111111111111111;//bne
+    rs2=32'd2;
+    func210=3'b001;
+    #2
+    rs1=32'b11111111111111111111111111111111;//blt
+    rs2=32'd2;
+    func210=3'b100;
+    #2
+    rs1=32'b11111111111111111111111111111111;//bge
+    rs2=32'd2;
+    func210=3'b101;
+    #2
+    rs1=32'b11111111111111111111111111111111;//bltu
+    rs2=32'd2;
+    func210=3'b110;
+    #2
+    rs1=32'b11111111111111111111111111111111;//bgeu
+    rs2=32'd2;
+    func210=3'b111;
+    #2
+    $finish;
+  end
+endmodule

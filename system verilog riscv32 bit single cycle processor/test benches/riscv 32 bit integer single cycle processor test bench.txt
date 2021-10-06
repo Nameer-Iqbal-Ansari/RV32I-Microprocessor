@@ -1,0 +1,15 @@
+`timescale 1ns/1ps
+module test_single_cycle_processor;
+  logic clk;
+  logic reset;
+  single_cycle_processor scp(
+    .clk(clk),.reset(reset));
+  initial begin
+    $dumpvars(0);
+    clk=0;
+    reset=0;
+    #100
+    $finish;
+  end
+  always #2 clk=~clk;
+endmodule

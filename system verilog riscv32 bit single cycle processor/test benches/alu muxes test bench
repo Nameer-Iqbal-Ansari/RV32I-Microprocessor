@@ -1,0 +1,50 @@
+`timescale 1ns/1ps
+module testalumuxes;
+  logic [1:0] opA;
+  logic opB;
+  logic [31:0]pcreg;
+  logic [31:0]rs1_out;
+  logic [31:0]rs2_out;
+  logic [31:0]imm;
+  logic [31:0]a_alu;
+  logic [31:0]b_alu;
+  alumuxes alumux(
+    .opA(opA),.opB(opB)
+    ,.pcreg(pcreg),
+    .rs1_out(rs1_out),
+    .rs2_out(rs2_out),
+    .imm(imm),.a_alu(a_alu),
+    .b_alu(b_alu));
+  initial begin
+    $dumpvars(0);
+    opA=2'd0;
+    opB=0;
+    pcreg=32'd23;
+    rs1_out=32'd2;
+    rs2_out=32'd3;
+    imm=32'd2;
+    #5
+    opA=2'd1;
+    opB=1;
+    pcreg=32'd23;
+    rs1_out=32'd2;
+    rs2_out=32'd3;
+    imm=32'd2;
+    #5
+    opA=2'd2;
+    opB=0;
+    pcreg=32'd23;
+    rs1_out=32'd2;
+    rs2_out=32'd3;
+    imm=32'd2;
+    #5
+    opA=2'd3;
+    opB=1;
+    pcreg=32'd23;
+    rs1_out=32'd2;
+    rs2_out=32'd3;
+    imm=32'd2;
+    #5
+    $finish;
+  end
+endmodule
