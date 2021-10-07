@@ -1,33 +1,80 @@
-module single_cycle_processor(
+module top(
   input logic clk,
-  input logic reset
+  input logic reset,
+  input logic [31:0] output1
 );
   // calling all the modules to connect them with top module//
-  inst_mem im(.add(address),.dataout(dataout));
+  inst_mem im(.add(address),
+              .dataout(dataout));
   
-  cu controlunit( .opcode(dataout[6:0]),.func210(dataout[14:12]),.func7(dataout[30]),
-                 .bands(bands),.alucontrol(alucontrol),.opA(opA),.opB(opB),
-                 .memwrite(memwrite),.memread(memread),.immsel(immsel),.writeback(writeback),
-                 .regfile(regfile),.pcsel(pcsel),.aluop210(aluop210),.branchtrue(branchtrue),
+  cu controlunit(.opcode(dataout[6:0]),
+                 .func210(dataout[14:12]),
+                 .func7(dataout[30]),
+                 .bands(bands),
+                 .alucontrol(alucontrol),
+                 .opA(opA),.opB(opB),
+                 .memwrite(memwrite),
+                 .memread(memread),
+                 .immsel(immsel),
+                 .writeback(writeback),
+                 .regfile(regfile),
+                 .pcsel(pcsel),
+                 .aluop210(aluop210),
+                 .branchtrue(branchtrue),
                  .jalr(jalr_en));
   
-  immgen ig( .inst(dataout),.pcvalue(pcreg),.immsel(immsel),.branch_imm(branch_add),
-            .jal_imm(jal_add), .imm(imm));
+  immgen ig(
+    .inst(dataout),
+    .pcvalue(pcreg),
+    .immsel(immsel),
+    .branch_imm(branch_add),
+    .jal_imm(jal_add),
+    .imm(imm));
   
-  ALU alu( .aluout(aluoutput),.alusel(alucontrol),.a(a_alu),.b(b_alu));
+  ALU alu( .aluout(aluoutput),
+          .alusel(alucontrol),
+          .a(a_alu),.b(b_alu));
   
-  reg_file rf( .reset(reset),.clk(clk),.write_enable(regfile),.rs1(dataout[19:15]),.rs2(dataout[24:20]),
-              .read_data1(rs1_out),.read_data2(rs2_out),.rd(dataout[11:7]),.write_data(writein_reg));
+  reg_file rf( .out(output1),
+              .reset(reset),
+              .clk(clk),
+              .write_enable(regfile),
+              .rs1(dataout[19:15]),
+              .rs2(dataout[24:20]),
+              .read_data1(rs1_out),
+              .read_data2(rs2_out),
+              .rd(dataout[11:7]),
+              .write_data(writein_reg));
   
-  branchalu balu( .func210(dataout[14:12]),.branchtrue(branchtrue),.rs1(rs1_out),.rs2(rs2_out));
+  branchalu balu( .func210(dataout[14:12]),
+                 .branchtrue(branchtrue),
+                 .rs1(rs1_out),
+                 .rs2(rs2_out));
   
-  data_mem dmem(.reset(reset),.clk(clk),.add(aluoutput[11:2]),.datain(rs2_out),.str(memwrite),.dataout(dmemout));
+  data_mem dmem(.reset(reset),
+                .clk(clk),
+                .add(aluoutput[11:2]),
+                .datain(rs2_out),
+                .str(memwrite),
+                .dataout(dmemout));
   
-  alumuxes mux12(.opA(opA),.opB(opB),.pcreg(pcreg),.rs1_out(rs1_out),.rs2_out(rs2_out),
-                 .imm(imm),.a_alu(a_alu),.b_alu(b_alu));
+  alumuxes mux12(.opA(opA),
+                 .opB(opB),
+                 .pcreg(pcreg),
+                 .rs1_out(rs1_out),
+                 .rs2_out(rs2_out),
+                 .imm(imm),
+                 .a_alu(a_alu),
+                 .b_alu(b_alu));
   
-  dmemmuxes mux3(.writeback(writeback), .jalr_en(jalr_en),.bands(bands),.aluoutput(aluoutput),
-                 .dmemout(dmemout), .pcreg(pcreg),.writein_reg(writein_reg),.r1(r1),.r2(r2));
+  dmemmuxes mux3(.writeback(writeback),
+                 .jalr_en(jalr_en),
+                 .bands(bands),
+                 .aluoutput(aluoutput),
+                 .dmemout(dmemout),
+                 .pcreg(pcreg),
+                 .writein_reg(writein_reg),
+                 .r1(r1),.r2(r2));
   //initializing the signals to communicate with modules
   
   logic [31:0] pcreg=$signed(32'b11111111111111111111111111111100);
@@ -80,4 +127,3 @@ always @(posedge clk) begin
   end
 end
 endmodule
-

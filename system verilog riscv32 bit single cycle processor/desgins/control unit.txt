@@ -14,17 +14,17 @@ module cu(
   output logic regfile,
   output logic [1:0] pcsel,
   output logic [2:0] aluop210,
-  output logic r,
-  output logic i,
-  output logic s,
-  output logic lui,
-  output logic auipc,
-  output logic jal,
-  output logic b,
-  output logic jalr,
-  output logic lw,
+  output logic jalr
 );
-  
+  logic r;
+  logic i;
+  logic s;
+  logic lui;
+  logic auipc;
+  logic jal;
+  logic b;
+  logic lw;
+
   always_comb begin
     r =0; i=0; s=0; lui=0;auipc=0;jal=0;b=0;jalr=0;lw=0;
     bands=0; opA=2'b00; opB=0 ; memwrite=0; memread=0 ; 
