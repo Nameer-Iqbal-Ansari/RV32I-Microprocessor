@@ -1,0 +1,55 @@
+dependencies:
+  ::top:1.0: []
+files:
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/top.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/alu.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/cu.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/alumuxes.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/branchalu.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/data_mem.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/dmemmuxes.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/immgen.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/mem.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/reg_file.sv
+- core: ::top:1.0
+  file_type: cppSource
+  name: ../src/top_1.0/tb/top.cpp
+hooks: {}
+name: top_1.0
+parameters:
+  vcd:
+    datatype: bool
+    default: true
+    paramtype: plusarg
+  vcd_start:
+    datatype: int
+    description: delay start of VCD dumping unitl the specified time
+    paramtype: plusarg
+tool_options:
+  verilator:
+    verilator_options:
+    - --trace
+    - --Wall
+toplevel: top
+version: 0.2.1
+vpi: []

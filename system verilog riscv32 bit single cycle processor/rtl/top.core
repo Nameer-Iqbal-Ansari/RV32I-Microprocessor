@@ -1,0 +1,48 @@
+CAPI=2:
+name : ::top:1.0
+
+filesets:
+  risc:
+    files:
+      - top/top.sv
+      - top/alu.sv
+      - top/cu.sv
+      - top/alumuxes.sv
+      - top/branchalu.sv
+      - top/data_mem.sv
+      - top/dmemmuxes.sv
+      - top/immgen.sv
+      - top/mem.sv
+      - top/reg_file.sv
+    file_type : systemVerilogSource
+
+  tb: 
+    files:
+      - tb/top.cpp
+    file_type: cppSource
+    
+targets:
+  default: &default
+    filesets: [risc]
+  
+  sim:
+    default_tool: verilator
+    filesets: [risc, tb]
+    parameters: 
+      - vcd
+      - vcd_start
+
+    tools:
+      verilator:
+        verilator_options: [--trace, --Wall]
+    toplevel: top
+
+parameters:
+  vcd:
+    datatype: bool
+    paramtype: plusarg
+
+  vcd_start:
+    datatype: int 
+    description: delay start of VCD dumping unitl the specified time
+    paramtype: plusarg 

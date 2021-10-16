@@ -1,0 +1,14 @@
+--cc
+alu.sv
+alumuxes.sv
+branchalu.sv
+cu.sv
+data_mem.sv
+dmemmuxes.sv
+immgen.sv
+mem.sv
+reg_file.sv
+top.sv
+--top-module top
+--exe
+../tb/top.cpp
