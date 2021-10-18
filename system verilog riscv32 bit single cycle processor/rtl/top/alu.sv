@@ -4,7 +4,7 @@ module alu(
   input logic [3:0]alusel,
   output logic [31:0]aluout
 );
-//========================USE CASE================
+
   always_latch begin
     case (alusel)
       4'b0000: aluout=a+b;

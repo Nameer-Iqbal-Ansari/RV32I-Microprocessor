@@ -64,7 +64,6 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->top__DOT__dataout = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__branch_add = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__jal_add = VL_RAND_RESET_I(32);
-    vlSelf->top__DOT__jalr_add = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__imm = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__aluoutput = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__bands = VL_RAND_RESET_I(1);

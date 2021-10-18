@@ -25,7 +25,7 @@ VL_INLINE_OPT void Vtop___024root___sequent__TOP__2(Vtop___024root* vlSelf) {
     }
     vlSelf->top__DOT__pcreg = ((2U & (IData)(vlSelf->top__DOT__pcsel))
                                 ? ((1U & (IData)(vlSelf->top__DOT__pcsel))
-                                    ? vlSelf->top__DOT__jalr_add
+                                    ? vlSelf->top__DOT__aluoutput
                                     : vlSelf->top__DOT__jal_add)
                                 : ((1U & (IData)(vlSelf->top__DOT__pcsel))
                                     ? vlSelf->top__DOT__branch_add
@@ -53,11 +53,6 @@ VL_INLINE_OPT void Vtop___024root___sequent__TOP__2(Vtop___024root* vlSelf) {
     if (__Vdlyvset__top__DOT__dmem__DOT__mem__v0) {
         vlSelf->top__DOT__dmem__DOT__mem[__Vdlyvdim0__top__DOT__dmem__DOT__mem__v0] 
             = __Vdlyvval__top__DOT__dmem__DOT__mem__v0;
-    }
-    if ((2U & (IData)(vlSelf->top__DOT__pcsel))) {
-        if ((1U & (IData)(vlSelf->top__DOT__pcsel))) {
-            vlSelf->top__DOT__jalr_add = vlSelf->top__DOT__aluoutput;
-        }
     }
     vlSelf->top__DOT__rf__DOT__reg_array[0U] = 0U;
     if (__Vdlyvset__top__DOT__rf__DOT__reg_array__v1) {

@@ -41,7 +41,6 @@ VL_MODULE(Vtop___024root) {
     IData/*31:0*/ top__DOT__dataout;
     IData/*31:0*/ top__DOT__branch_add;
     IData/*31:0*/ top__DOT__jal_add;
-    IData/*31:0*/ top__DOT__jalr_add;
     IData/*31:0*/ top__DOT__imm;
     IData/*31:0*/ top__DOT__aluoutput;
     IData/*31:0*/ top__DOT__a_alu;

@@ -3,38 +3,8 @@ module top(
   input logic reset,
   output logic [31:0] output1
 );
+  // calling all the modules to connect them with top module//
   
-  
-  //initializing the signals to communicate with modules
-  
-  logic [31:0] pcreg=$signed(32'b11111111111111111111111111111100);
-  logic [9:0] address=10'd0;
-  logic [31:0] dataout;
-  logic [31:0] branch_add;
-  logic [31:0] jal_add;
-  logic [31:0] jalr_add;
-  logic [31:0] imm;
-  logic [31:0] aluoutput;
-  logic bands;
-  logic [3:0] alucontrol;
-  logic [1:0] opA;
-  logic opB;
-  logic [31:0] a_alu;
-  logic [31:0] b_alu;
-  logic memwrite;
-  logic [1:0] immsel;
-  logic writeback;
-  logic regfile;
-  logic [1:0] pcsel;
-  logic branchtrue;
-  logic [31:0] rs1_out;
-  logic [31:0] rs2_out;
-  logic [31:0] writein_reg;
-  logic [31:0] dmemout;
-  logic jalr_en;
-  logic en;
-// calling all the modules to connect them with top module//
-
   mem im(     .add(address),
               .en1(en),
               .instruction(dataout));
@@ -106,17 +76,44 @@ module top(
                  .dmemout(dmemout),
                  .pcreg(pcreg),
                  .writein_reg(writein_reg));
-  //stage 1 addressing or generating the address
+
   
+  //initializing the signals to communicate with modules
+  
+  logic [31:0] pcreg=$signed(32'b11111111111111111111111111111100);
+  logic [9:0] address=10'd0;
+  logic [31:0] dataout;
+  logic [31:0] branch_add;
+  logic [31:0] jal_add;
+  logic [31:0] imm;
+  logic [31:0] aluoutput;
+  logic [31:0] jalr_add=aluoutput;
+  logic bands;
+  logic [3:0] alucontrol;
+  logic [1:0] opA;
+  logic opB;
+  logic [31:0] a_alu;
+  logic [31:0] b_alu;
+  logic memwrite;
+  logic [1:0] immsel;
+  logic writeback;
+  logic regfile;
+  logic [1:0] pcsel;
+  logic branchtrue;
+  logic [31:0] rs1_out;
+  logic [31:0] rs2_out;
+  logic [31:0] writein_reg;
+  logic [31:0] dmemout;
+  logic jalr_en;
+  logic en;
+
+  //generating the address//
 always @(posedge clk) begin
   case(pcsel)
       /* verilator lint_off BLKSEQ */2'b00: pcreg=pcreg+4;
       /* verilator lint_off BLKSEQ */2'b01: pcreg=branch_add;
       /* verilator lint_off BLKSEQ */2'b10: pcreg=jal_add;
-      2'b11: begin 
-        /* verilator lint_off BLKSEQ */jalr_add<=aluoutput;
-        /* verilator lint_off BLKSEQ */pcreg=jalr_add;
-      end
+      /* verilator lint_off BLKSEQ */2'b11: pcreg=jalr_add;
       default:;
   endcase
 end
