@@ -3,10 +3,8 @@
 ../src/top_1.0/top/top.sv
 ../src/top_1.0/top/alu.sv
 ../src/top_1.0/top/cu.sv
-../src/top_1.0/top/alumuxes.sv
 ../src/top_1.0/top/branchalu.sv
 ../src/top_1.0/top/data_mem.sv
-../src/top_1.0/top/dmemmuxes.sv
 ../src/top_1.0/top/immgen.sv
 ../src/top_1.0/top/mem.sv
 ../src/top_1.0/top/reg_file.sv

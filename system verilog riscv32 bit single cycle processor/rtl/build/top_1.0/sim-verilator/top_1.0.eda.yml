@@ -12,16 +12,10 @@ files:
   name: ../src/top_1.0/top/cu.sv
 - core: ::top:1.0
   file_type: systemVerilogSource
-  name: ../src/top_1.0/top/alumuxes.sv
-- core: ::top:1.0
-  file_type: systemVerilogSource
   name: ../src/top_1.0/top/branchalu.sv
 - core: ::top:1.0
   file_type: systemVerilogSource
   name: ../src/top_1.0/top/data_mem.sv
-- core: ::top:1.0
-  file_type: systemVerilogSource
-  name: ../src/top_1.0/top/dmemmuxes.sv
 - core: ::top:1.0
   file_type: systemVerilogSource
   name: ../src/top_1.0/top/immgen.sv

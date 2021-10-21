@@ -35,7 +35,8 @@ module top(
   
   alu alu_i( .aluout(aluoutput),
           .alusel(alucontrol),
-          .a(a_alu),.b(b_alu));
+          .input_a(a_alu),
+          .input_b(b_alu));
   
   reg_file rf( .out(output1),
               .clk(clk),
@@ -59,23 +60,7 @@ module top(
                 .datain(rs2_out),
                 .wen(memwrite),
                 .dataout(dmemout));
-  
-  alumuxes mux12(.opA(opA),
-                 .opB(opB),
-                 .pcreg(pcreg),
-                 .rs1_out(rs1_out),
-                 .rs2_out(rs2_out),
-                 .imm(imm),
-                 .a_alu(a_alu),
-                 .b_alu(b_alu));
-  
-  dmemmuxes mux3(.writeback(writeback),
-                 .jalr_en(jalr_en),
-                 .bands(bands),
-                 .aluoutput(aluoutput),
-                 .dmemout(dmemout),
-                 .pcreg(pcreg),
-                 .writein_reg(writein_reg));
+
 
   
   //initializing the signals to communicate with modules
@@ -106,7 +91,15 @@ module top(
   logic [31:0] dmemout;
   logic jalr_en;
   logic en;
-
+  logic [31:0] r1;
+  logic [31:0] r2;
+  //alu muxes//
+  assign a_alu = opA==2'b00 ? pcreg+4:(opA==2'b01 ? rs1_out :(opA==2'b10 ? pcreg : 32'b?));
+  assign b_alu = opB==0 ? rs2_out:imm;
+  //data memory muxes//
+  assign r1 = writeback==0 ? aluoutput:dmemout;
+  assign r2 = jalr_en==0 ? r1 : pcreg+4 ;
+  assign writein_reg = bands==0 ? r2 : 32'b?;
   //generating the address//
 always @(posedge clk) begin
   case(pcsel)

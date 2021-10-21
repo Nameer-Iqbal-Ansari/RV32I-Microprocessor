@@ -1,24 +1,24 @@
 module alu(
-  input logic [31:0]a,
-  input logic [31:0]b,
+  input logic [31:0]input_a,
+  input logic [31:0]input_b,
   input logic [3:0]alusel,
   output logic [31:0]aluout
 );
-//========================USE CASE================
+
   always_latch begin
     case (alusel)
-      4'b0000: aluout=a+b;
-      4'b0001: aluout=$signed(a)-$signed(b);
-      4'b0010: aluout=a&b;
-      4'b0011: aluout=a|b;
-      4'b0100: aluout=a^b;
-      4'b0101: aluout=a>>b[4:0];
-      4'b0110: aluout=a>>>b[4:0];
-      4'b0111: aluout=a<<b[4:0];
-      4'b1000: aluout[0]=$signed(a) < $signed (b) ;
-      4'b1001: aluout[0]=$unsigned(a) < $unsigned (b) ;
-      4'b1110: aluout=b;
-      4'b1111: aluout=a;
+      4'b0000: aluout=input_a+input_b;
+      4'b0001: aluout=$signed(input_a)-$signed(input_b);
+      4'b0010: aluout=input_a&input_b;
+      4'b0011: aluout=input_a|input_b;
+      4'b0100: aluout=input_a^input_b;
+      4'b0101: aluout=input_a>>input_b[4:0];
+      4'b0110: aluout=input_a>>>input_b[4:0];
+      4'b0111: aluout=input_a<<input_b[4:0];
+      4'b1000: aluout[0]=$signed(input_a) < $signed (input_b) ;
+      4'b1001: aluout[0]=$unsigned(input_a) < $unsigned (input_b) ;
+      4'b1110: aluout=input_b;
+      4'b1111: aluout=input_a;
       default: ;
     endcase
   end

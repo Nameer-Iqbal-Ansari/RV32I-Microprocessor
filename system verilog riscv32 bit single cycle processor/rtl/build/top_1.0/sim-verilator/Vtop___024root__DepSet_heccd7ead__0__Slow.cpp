@@ -94,6 +94,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->top__DOT__controlunit__DOT__jal = VL_RAND_RESET_I(1);
     vlSelf->top__DOT__controlunit__DOT__b = VL_RAND_RESET_I(1);
     vlSelf->top__DOT__controlunit__DOT__lw = VL_RAND_RESET_I(1);
+    vlSelf->top__DOT__controlunit__DOT__alucontrol_input = VL_RAND_RESET_I(7);
     vlSelf->top__DOT__ig__DOT__iorjalr_imm = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__ig__DOT__s_imm = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__ig__DOT__u_imm = VL_RAND_RESET_I(32);
@@ -105,8 +106,6 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     for (int __Vi0=0; __Vi0<1024; ++__Vi0) {
         vlSelf->top__DOT__dmem__DOT__mem[__Vi0] = 0;
     }
-    vlSelf->top__DOT__mux3__DOT__r1 = VL_RAND_RESET_I(32);
-    vlSelf->top__DOT__mux3__DOT__r2 = VL_RAND_RESET_I(32);
     for (int __Vi0=0; __Vi0<3; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }

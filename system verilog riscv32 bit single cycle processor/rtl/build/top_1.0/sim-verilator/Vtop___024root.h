@@ -34,6 +34,7 @@ VL_MODULE(Vtop___024root) {
     CData/*0:0*/ top__DOT__controlunit__DOT__jal;
     CData/*0:0*/ top__DOT__controlunit__DOT__b;
     CData/*0:0*/ top__DOT__controlunit__DOT__lw;
+    CData/*6:0*/ top__DOT__controlunit__DOT__alucontrol_input;
     CData/*0:0*/ __Vclklast__TOP__clk;
     SData/*9:0*/ top__DOT__address;
     VL_OUT(output1,31,0);
@@ -53,8 +54,6 @@ VL_MODULE(Vtop___024root) {
     IData/*31:0*/ top__DOT__ig__DOT__u_imm;
     IData/*19:0*/ top__DOT__ig__DOT__extend;
     IData/*31:0*/ top__DOT__rf__DOT__unnamedblk1__DOT__i;
-    IData/*31:0*/ top__DOT__mux3__DOT__r1;
-    IData/*31:0*/ top__DOT__mux3__DOT__r2;
     VlUnpacked<IData/*31:0*/, 1024> top__DOT__im__DOT__mem;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__rf__DOT__reg_array;
     VlUnpacked<IData/*31:0*/, 1024> top__DOT__dmem__DOT__mem;

@@ -22,13 +22,13 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub_0(Vtop___024root* vlSelf, Veril
     const int c = vlSymsp->__Vm_baseCode;
     if (false && tracep && c) {}  // Prevent unused
     // Body
-    tracep->declBit(c+78,"clk", false,-1);
-    tracep->declBit(c+79,"reset", false,-1);
-    tracep->declBus(c+80,"output1", false,-1, 31,0);
-    tracep->declBit(c+78,"top clk", false,-1);
-    tracep->declBit(c+79,"top reset", false,-1);
-    tracep->declBus(c+80,"top output1", false,-1, 31,0);
-    tracep->declBus(c+81,"top pcreg", false,-1, 31,0);
+    tracep->declBit(c+77,"clk", false,-1);
+    tracep->declBit(c+78,"reset", false,-1);
+    tracep->declBus(c+79,"output1", false,-1, 31,0);
+    tracep->declBit(c+77,"top clk", false,-1);
+    tracep->declBit(c+78,"top reset", false,-1);
+    tracep->declBus(c+79,"top output1", false,-1, 31,0);
+    tracep->declBus(c+80,"top pcreg", false,-1, 31,0);
     tracep->declBus(c+34,"top address", false,-1, 9,0);
     tracep->declBus(c+35,"top dataout", false,-1, 31,0);
     tracep->declBus(c+36,"top branch_add", false,-1, 31,0);
@@ -51,10 +51,12 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub_0(Vtop___024root* vlSelf, Veril
     tracep->declBus(c+52,"top rs1_out", false,-1, 31,0);
     tracep->declBus(c+53,"top rs2_out", false,-1, 31,0);
     tracep->declBus(c+54,"top writein_reg", false,-1, 31,0);
-    tracep->declBus(c+82,"top dmemout", false,-1, 31,0);
+    tracep->declBus(c+81,"top dmemout", false,-1, 31,0);
     tracep->declBit(c+55,"top jalr_en", false,-1);
-    tracep->declBit(c+83,"top en", false,-1);
-    tracep->declBit(c+83,"top im en1", false,-1);
+    tracep->declBit(c+84,"top en", false,-1);
+    tracep->declBus(c+82,"top r1", false,-1, 31,0);
+    tracep->declBus(c+83,"top r2", false,-1, 31,0);
+    tracep->declBit(c+84,"top im en1", false,-1);
     tracep->declBus(c+34,"top im add", false,-1, 9,0);
     tracep->declBus(c+35,"top im instruction", false,-1, 31,0);
     tracep->declBus(c+56,"top controlunit opcode", false,-1, 6,0);
@@ -71,7 +73,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub_0(Vtop___024root* vlSelf, Veril
     tracep->declBit(c+49,"top controlunit regfile", false,-1);
     tracep->declBus(c+50,"top controlunit pcsel", false,-1, 1,0);
     tracep->declBit(c+55,"top controlunit jalr", false,-1);
-    tracep->declBit(c+83,"top controlunit en0", false,-1);
+    tracep->declBit(c+84,"top controlunit en0", false,-1);
     tracep->declBus(c+59,"top controlunit aluop210", false,-1, 2,0);
     tracep->declBit(c+60,"top controlunit r", false,-1);
     tracep->declBit(c+61,"top controlunit i", false,-1);
@@ -81,30 +83,31 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub_0(Vtop___024root* vlSelf, Veril
     tracep->declBit(c+65,"top controlunit jal", false,-1);
     tracep->declBit(c+66,"top controlunit b", false,-1);
     tracep->declBit(c+67,"top controlunit lw", false,-1);
+    tracep->declBus(c+68,"top controlunit alucontrol_input", false,-1, 6,0);
     tracep->declBus(c+35,"top ig inst", false,-1, 31,0);
-    tracep->declBus(c+81,"top ig pcvalue", false,-1, 31,0);
+    tracep->declBus(c+80,"top ig pcvalue", false,-1, 31,0);
     tracep->declBus(c+47,"top ig immsel", false,-1, 1,0);
     tracep->declBus(c+37,"top ig jal_imm", false,-1, 31,0);
     tracep->declBus(c+38,"top ig imm", false,-1, 31,0);
     tracep->declBus(c+36,"top ig branch_imm", false,-1, 31,0);
-    tracep->declBus(c+68,"top ig iorjalr_imm", false,-1, 31,0);
-    tracep->declBus(c+69,"top ig s_imm", false,-1, 31,0);
-    tracep->declBus(c+70,"top ig u_imm", false,-1, 31,0);
-    tracep->declBus(c+71,"top ig extend", false,-1, 19,0);
-    tracep->declBus(c+44,"top alu_i a", false,-1, 31,0);
-    tracep->declBus(c+45,"top alu_i b", false,-1, 31,0);
+    tracep->declBus(c+69,"top ig iorjalr_imm", false,-1, 31,0);
+    tracep->declBus(c+70,"top ig s_imm", false,-1, 31,0);
+    tracep->declBus(c+71,"top ig u_imm", false,-1, 31,0);
+    tracep->declBus(c+72,"top ig extend", false,-1, 19,0);
+    tracep->declBus(c+44,"top alu_i input_a", false,-1, 31,0);
+    tracep->declBus(c+45,"top alu_i input_b", false,-1, 31,0);
     tracep->declBus(c+41,"top alu_i alusel", false,-1, 3,0);
     tracep->declBus(c+39,"top alu_i aluout", false,-1, 31,0);
-    tracep->declBit(c+78,"top rf clk", false,-1);
+    tracep->declBit(c+77,"top rf clk", false,-1);
     tracep->declBit(c+49,"top rf write_enable", false,-1);
-    tracep->declBus(c+72,"top rf rs1", false,-1, 4,0);
-    tracep->declBus(c+73,"top rf rs2", false,-1, 4,0);
-    tracep->declBus(c+74,"top rf rd", false,-1, 4,0);
+    tracep->declBus(c+73,"top rf rs1", false,-1, 4,0);
+    tracep->declBus(c+74,"top rf rs2", false,-1, 4,0);
+    tracep->declBus(c+75,"top rf rd", false,-1, 4,0);
     tracep->declBus(c+54,"top rf write_data", false,-1, 31,0);
     tracep->declBus(c+52,"top rf read_data1", false,-1, 31,0);
     tracep->declBus(c+53,"top rf read_data2", false,-1, 31,0);
-    tracep->declBus(c+80,"top rf out", false,-1, 31,0);
-    tracep->declBit(c+79,"top rf reset", false,-1);
+    tracep->declBus(c+79,"top rf out", false,-1, 31,0);
+    tracep->declBit(c+78,"top rf reset", false,-1);
     {int i; for (i=0; i<32; i++) {
             tracep->declBus(c+1+i*1,"top rf reg_array", true,(i+0), 31,0);}}
     tracep->declBus(c+33,"top rf unnamedblk1 i", false,-1, 31,0);
@@ -112,28 +115,11 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub_0(Vtop___024root* vlSelf, Veril
     tracep->declBus(c+53,"top balu rs2", false,-1, 31,0);
     tracep->declBus(c+57,"top balu func210", false,-1, 2,0);
     tracep->declBit(c+51,"top balu branchtrue", false,-1);
-    tracep->declBit(c+78,"top dmem clk", false,-1);
-    tracep->declBus(c+75,"top dmem add", false,-1, 9,0);
+    tracep->declBit(c+77,"top dmem clk", false,-1);
+    tracep->declBus(c+76,"top dmem add", false,-1, 9,0);
     tracep->declBus(c+53,"top dmem datain", false,-1, 31,0);
     tracep->declBit(c+46,"top dmem wen", false,-1);
-    tracep->declBus(c+82,"top dmem dataout", false,-1, 31,0);
-    tracep->declBus(c+42,"top mux12 opA", false,-1, 1,0);
-    tracep->declBit(c+43,"top mux12 opB", false,-1);
-    tracep->declBus(c+81,"top mux12 pcreg", false,-1, 31,0);
-    tracep->declBus(c+52,"top mux12 rs1_out", false,-1, 31,0);
-    tracep->declBus(c+53,"top mux12 rs2_out", false,-1, 31,0);
-    tracep->declBus(c+38,"top mux12 imm", false,-1, 31,0);
-    tracep->declBus(c+44,"top mux12 a_alu", false,-1, 31,0);
-    tracep->declBus(c+45,"top mux12 b_alu", false,-1, 31,0);
-    tracep->declBit(c+48,"top mux3 writeback", false,-1);
-    tracep->declBit(c+55,"top mux3 jalr_en", false,-1);
-    tracep->declBit(c+40,"top mux3 bands", false,-1);
-    tracep->declBus(c+39,"top mux3 aluoutput", false,-1, 31,0);
-    tracep->declBus(c+82,"top mux3 dmemout", false,-1, 31,0);
-    tracep->declBus(c+81,"top mux3 pcreg", false,-1, 31,0);
-    tracep->declBus(c+54,"top mux3 writein_reg", false,-1, 31,0);
-    tracep->declBus(c+76,"top mux3 r1", false,-1, 31,0);
-    tracep->declBus(c+77,"top mux3 r2", false,-1, 31,0);
+    tracep->declBus(c+81,"top dmem dataout", false,-1, 31,0);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_full_top_0(void* voidSelf, VerilatedVcd* tracep);
@@ -237,26 +223,37 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
     tracep->fullBit(oldp+65,(vlSelf->top__DOT__controlunit__DOT__jal));
     tracep->fullBit(oldp+66,(vlSelf->top__DOT__controlunit__DOT__b));
     tracep->fullBit(oldp+67,(vlSelf->top__DOT__controlunit__DOT__lw));
-    tracep->fullIData(oldp+68,(vlSelf->top__DOT__ig__DOT__iorjalr_imm),32);
-    tracep->fullIData(oldp+69,(vlSelf->top__DOT__ig__DOT__s_imm),32);
-    tracep->fullIData(oldp+70,(vlSelf->top__DOT__ig__DOT__u_imm),32);
-    tracep->fullIData(oldp+71,(vlSelf->top__DOT__ig__DOT__extend),20);
-    tracep->fullCData(oldp+72,((0x1fU & (vlSelf->top__DOT__dataout 
-                                         >> 0xfU))),5);
+    tracep->fullCData(oldp+68,(vlSelf->top__DOT__controlunit__DOT__alucontrol_input),7);
+    tracep->fullIData(oldp+69,(vlSelf->top__DOT__ig__DOT__iorjalr_imm),32);
+    tracep->fullIData(oldp+70,(vlSelf->top__DOT__ig__DOT__s_imm),32);
+    tracep->fullIData(oldp+71,(vlSelf->top__DOT__ig__DOT__u_imm),32);
+    tracep->fullIData(oldp+72,(vlSelf->top__DOT__ig__DOT__extend),20);
     tracep->fullCData(oldp+73,((0x1fU & (vlSelf->top__DOT__dataout 
-                                         >> 0x14U))),5);
+                                         >> 0xfU))),5);
     tracep->fullCData(oldp+74,((0x1fU & (vlSelf->top__DOT__dataout 
+                                         >> 0x14U))),5);
+    tracep->fullCData(oldp+75,((0x1fU & (vlSelf->top__DOT__dataout 
                                          >> 7U))),5);
-    tracep->fullSData(oldp+75,((0x3ffU & (vlSelf->top__DOT__aluoutput 
+    tracep->fullSData(oldp+76,((0x3ffU & (vlSelf->top__DOT__aluoutput 
                                           >> 2U))),10);
-    tracep->fullIData(oldp+76,(vlSelf->top__DOT__mux3__DOT__r1),32);
-    tracep->fullIData(oldp+77,(vlSelf->top__DOT__mux3__DOT__r2),32);
-    tracep->fullBit(oldp+78,(vlSelf->clk));
-    tracep->fullBit(oldp+79,(vlSelf->reset));
-    tracep->fullIData(oldp+80,(vlSelf->output1),32);
-    tracep->fullIData(oldp+81,(vlSelf->top__DOT__pcreg),32);
-    tracep->fullIData(oldp+82,(vlSelf->top__DOT__dmem__DOT__mem
+    tracep->fullBit(oldp+77,(vlSelf->clk));
+    tracep->fullBit(oldp+78,(vlSelf->reset));
+    tracep->fullIData(oldp+79,(vlSelf->output1),32);
+    tracep->fullIData(oldp+80,(vlSelf->top__DOT__pcreg),32);
+    tracep->fullIData(oldp+81,(vlSelf->top__DOT__dmem__DOT__mem
                                [(0x3ffU & (vlSelf->top__DOT__aluoutput 
                                            >> 2U))]),32);
-    tracep->fullBit(oldp+83,(1U));
+    tracep->fullIData(oldp+82,(((IData)(vlSelf->top__DOT__writeback)
+                                 ? vlSelf->top__DOT__dmem__DOT__mem
+                                [(0x3ffU & (vlSelf->top__DOT__aluoutput 
+                                            >> 2U))]
+                                 : vlSelf->top__DOT__aluoutput)),32);
+    tracep->fullIData(oldp+83,(((IData)(vlSelf->top__DOT__jalr_en)
+                                 ? ((IData)(4U) + vlSelf->top__DOT__pcreg)
+                                 : ((IData)(vlSelf->top__DOT__writeback)
+                                     ? vlSelf->top__DOT__dmem__DOT__mem
+                                    [(0x3ffU & (vlSelf->top__DOT__aluoutput 
+                                                >> 2U))]
+                                     : vlSelf->top__DOT__aluoutput))),32);
+    tracep->fullBit(oldp+84,(1U));
 }

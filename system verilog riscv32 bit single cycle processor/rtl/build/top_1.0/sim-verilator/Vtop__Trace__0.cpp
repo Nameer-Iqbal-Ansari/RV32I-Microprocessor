@@ -95,28 +95,39 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedVcd* trace
         tracep->chgBit(oldp+64,(vlSelf->top__DOT__controlunit__DOT__jal));
         tracep->chgBit(oldp+65,(vlSelf->top__DOT__controlunit__DOT__b));
         tracep->chgBit(oldp+66,(vlSelf->top__DOT__controlunit__DOT__lw));
-        tracep->chgIData(oldp+67,(vlSelf->top__DOT__ig__DOT__iorjalr_imm),32);
-        tracep->chgIData(oldp+68,(vlSelf->top__DOT__ig__DOT__s_imm),32);
-        tracep->chgIData(oldp+69,(vlSelf->top__DOT__ig__DOT__u_imm),32);
-        tracep->chgIData(oldp+70,(vlSelf->top__DOT__ig__DOT__extend),20);
-        tracep->chgCData(oldp+71,((0x1fU & (vlSelf->top__DOT__dataout 
-                                            >> 0xfU))),5);
+        tracep->chgCData(oldp+67,(vlSelf->top__DOT__controlunit__DOT__alucontrol_input),7);
+        tracep->chgIData(oldp+68,(vlSelf->top__DOT__ig__DOT__iorjalr_imm),32);
+        tracep->chgIData(oldp+69,(vlSelf->top__DOT__ig__DOT__s_imm),32);
+        tracep->chgIData(oldp+70,(vlSelf->top__DOT__ig__DOT__u_imm),32);
+        tracep->chgIData(oldp+71,(vlSelf->top__DOT__ig__DOT__extend),20);
         tracep->chgCData(oldp+72,((0x1fU & (vlSelf->top__DOT__dataout 
-                                            >> 0x14U))),5);
+                                            >> 0xfU))),5);
         tracep->chgCData(oldp+73,((0x1fU & (vlSelf->top__DOT__dataout 
+                                            >> 0x14U))),5);
+        tracep->chgCData(oldp+74,((0x1fU & (vlSelf->top__DOT__dataout 
                                             >> 7U))),5);
-        tracep->chgSData(oldp+74,((0x3ffU & (vlSelf->top__DOT__aluoutput 
+        tracep->chgSData(oldp+75,((0x3ffU & (vlSelf->top__DOT__aluoutput 
                                              >> 2U))),10);
-        tracep->chgIData(oldp+75,(vlSelf->top__DOT__mux3__DOT__r1),32);
-        tracep->chgIData(oldp+76,(vlSelf->top__DOT__mux3__DOT__r2),32);
     }
-    tracep->chgBit(oldp+77,(vlSelf->clk));
-    tracep->chgBit(oldp+78,(vlSelf->reset));
-    tracep->chgIData(oldp+79,(vlSelf->output1),32);
-    tracep->chgIData(oldp+80,(vlSelf->top__DOT__pcreg),32);
-    tracep->chgIData(oldp+81,(vlSelf->top__DOT__dmem__DOT__mem
+    tracep->chgBit(oldp+76,(vlSelf->clk));
+    tracep->chgBit(oldp+77,(vlSelf->reset));
+    tracep->chgIData(oldp+78,(vlSelf->output1),32);
+    tracep->chgIData(oldp+79,(vlSelf->top__DOT__pcreg),32);
+    tracep->chgIData(oldp+80,(vlSelf->top__DOT__dmem__DOT__mem
                               [(0x3ffU & (vlSelf->top__DOT__aluoutput 
                                           >> 2U))]),32);
+    tracep->chgIData(oldp+81,(((IData)(vlSelf->top__DOT__writeback)
+                                ? vlSelf->top__DOT__dmem__DOT__mem
+                               [(0x3ffU & (vlSelf->top__DOT__aluoutput 
+                                           >> 2U))]
+                                : vlSelf->top__DOT__aluoutput)),32);
+    tracep->chgIData(oldp+82,(((IData)(vlSelf->top__DOT__jalr_en)
+                                ? ((IData)(4U) + vlSelf->top__DOT__pcreg)
+                                : ((IData)(vlSelf->top__DOT__writeback)
+                                    ? vlSelf->top__DOT__dmem__DOT__mem
+                                   [(0x3ffU & (vlSelf->top__DOT__aluoutput 
+                                               >> 2U))]
+                                    : vlSelf->top__DOT__aluoutput))),32);
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {
