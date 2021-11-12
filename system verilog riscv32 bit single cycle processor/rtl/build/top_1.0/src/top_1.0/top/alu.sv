@@ -7,7 +7,7 @@ module alu(
 
   always_latch begin
     case (alusel)
-      4'b0000: aluout=input_a+input_b;
+      4'b0000: aluout=$signed(input_a)+$signed(input_b);
       4'b0001: aluout=$signed(input_a)-$signed(input_b);
       4'b0010: aluout=input_a&input_b;
       4'b0011: aluout=input_a|input_b;

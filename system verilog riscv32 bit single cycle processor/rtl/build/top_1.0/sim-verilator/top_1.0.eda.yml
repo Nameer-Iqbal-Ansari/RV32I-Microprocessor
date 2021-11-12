@@ -3,16 +3,19 @@ dependencies:
 files:
 - core: ::top:1.0
   file_type: systemVerilogSource
-  name: ../src/top_1.0/top/top.sv
-- core: ::top:1.0
-  file_type: systemVerilogSource
   name: ../src/top_1.0/top/alu.sv
 - core: ::top:1.0
   file_type: systemVerilogSource
-  name: ../src/top_1.0/top/cu.sv
+  name: ../src/top_1.0/top/branchalu.sv
 - core: ::top:1.0
   file_type: systemVerilogSource
-  name: ../src/top_1.0/top/branchalu.sv
+  name: ../src/top_1.0/top/channel_a.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/channel_d.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/cu.sv
 - core: ::top:1.0
   file_type: systemVerilogSource
   name: ../src/top_1.0/top/data_mem.sv
@@ -26,8 +29,14 @@ files:
   file_type: systemVerilogSource
   name: ../src/top_1.0/top/reg_file.sv
 - core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/top_main.sv
+- core: ::top:1.0
+  file_type: systemVerilogSource
+  name: ../src/top_1.0/top/top.sv
+- core: ::top:1.0
   file_type: cppSource
-  name: ../src/top_1.0/tb/top.cpp
+  name: ../src/top_1.0/tb/top_main.cpp
 hooks: {}
 name: top_1.0
 parameters:
@@ -44,6 +53,6 @@ tool_options:
     verilator_options:
     - --trace
     - --Wall
-toplevel: top
+toplevel: top_main
 version: 0.2.1
 vpi: []

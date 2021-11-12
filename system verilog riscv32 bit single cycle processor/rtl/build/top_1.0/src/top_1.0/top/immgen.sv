@@ -5,6 +5,7 @@ module immgen(
   output logic [31:0] jal_imm,
   output logic [31:0] imm,
   output logic [31:0] branch_imm
+  
 );
   logic [31:0] iorjalr_imm;
   logic [31:0] s_imm;

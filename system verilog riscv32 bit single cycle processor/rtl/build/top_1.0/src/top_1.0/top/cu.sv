@@ -12,8 +12,7 @@ module cu(
   output logic writeback,
   output logic regfile,
   output logic [1:0] pcsel,
-  output logic jalr,
-  output logic en0
+  output logic jalr
 );
   logic [2:0] aluop210;
   logic r;
@@ -32,7 +31,7 @@ module cu(
     r =0; i=0; s=0; lui=0;auipc=0;jal=0;b=0;jalr=0;lw=0;
     bands=0; opA=2'b00; opB=0 ; memwrite=0; 
     immsel=2'b00 ; writeback=0 ; regfile =0; pcsel=2'b00; 
-    jalr=0; aluop210=3'b000; en0=1;
+    jalr=0; aluop210=3'b000; 
     case(opcode) 
         7'b0110011: begin 
           r =1;

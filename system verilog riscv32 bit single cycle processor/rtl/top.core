@@ -4,19 +4,22 @@ name : ::top:1.0
 filesets:
   risc:
     files:
-      - top/top.sv
       - top/alu.sv
-      - top/cu.sv
       - top/branchalu.sv
+      - top/channel_a.sv
+      - top/channel_d.sv
+      - top/cu.sv
       - top/data_mem.sv
       - top/immgen.sv
       - top/mem.sv
       - top/reg_file.sv
+      - top/top_main.sv
+      - top/top.sv
     file_type : systemVerilogSource
 
   tb: 
     files:
-      - tb/top.cpp
+      - tb/top_main.cpp
     file_type: cppSource
     
 targets:
@@ -33,7 +36,7 @@ targets:
     tools:
       verilator:
         verilator_options: [--trace, --Wall]
-    toplevel: top
+    toplevel: top_main
 
 parameters:
   vcd:
