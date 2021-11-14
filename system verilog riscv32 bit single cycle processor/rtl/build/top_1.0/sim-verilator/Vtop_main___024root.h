@@ -16,6 +16,7 @@ VL_MODULE(Vtop_main___024root) {
     struct {
         VL_IN8(clk,0,0);
         VL_IN8(reset,0,0);
+        CData/*0:0*/ top_main__DOT__a_ready_i_2;
         CData/*0:0*/ top_main__DOT__d1_ready_i;
         CData/*0:0*/ top_main__DOT__d2_ready_i;
         CData/*2:0*/ top_main__DOT__d_opcode_i_1;
@@ -32,7 +33,6 @@ VL_MODULE(Vtop_main___024root) {
         CData/*2:0*/ top_main__DOT__d1_opcode_o;
         CData/*1:0*/ top_main__DOT__d1_size_o;
         CData/*0:0*/ top_main__DOT__d2_valid_o;
-        CData/*2:0*/ top_main__DOT__d2_opcode_o;
         CData/*0:0*/ top_main__DOT__core__DOT__channel_a_sel;
         CData/*0:0*/ top_main__DOT__core__DOT__memwrite;
         CData/*0:0*/ top_main__DOT__core__DOT__bands;

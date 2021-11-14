@@ -12,7 +12,7 @@ module channel_a(
   input logic  [11:0]  a_address_i,
   input logic  [31:0] a_data_i
 );
-  always_latch begin 
+  /* verilator lint_off NOLATCH */always_latch begin 
     if(a_ready_i) begin
       a_valid_o   = a_ready_i  ;
       a_opcode_o  = a_opcode_i ;

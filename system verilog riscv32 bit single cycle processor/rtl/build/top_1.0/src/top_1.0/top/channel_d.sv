@@ -9,7 +9,7 @@ module channel_d(
   output logic [31:0] d_data_o,    
   output logic [2:0]  d_opcode_o  
 );
-  always_latch begin 
+  /* verilator lint_off NOLATCH */always_latch begin 
     if(d_valid_i) begin
       d_ready_o  = d_valid_i;
       d_opcode_o = d_opcode_i;
@@ -21,5 +21,6 @@ module channel_d(
         default:;
       endcase
     end
+    else d_ready_o  = 0;
   end
 endmodule

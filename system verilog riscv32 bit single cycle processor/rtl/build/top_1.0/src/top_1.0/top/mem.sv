@@ -7,7 +7,7 @@ module mem (
     input logic [1:0]  a_size_i,
     input logic [1:0]  a_mask_i,
     //respone signals to host
-    output  logic         d_valid_o,
+    output  logic         d_valid_o=0,
     output  logic  [2:0]  d_opcode_o,
     output  logic  [1:0]  d_size_o,
     output  logic  [31:0] d_data_o
@@ -28,10 +28,8 @@ module mem (
       d_size_o = a_size_i;
       instruction=mem[add];
       d_opcode_o = a_opcode_i;
-      d_valid_o = en1;
+      d_valid_o = 1;
     end
-    else 
-      d_valid_o = 0 ;
-    
+    else d_valid_o = 0 ;
   end
 endmodule

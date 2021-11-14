@@ -98,7 +98,7 @@ module top(
   logic [31:0] r2;
   //translation of core's signals into bus signals
   assign dataout       = (d_opcode_i_1==3'b100 && d1_ready_i==1)? d_data_i_1 : 32'b?;
-  assign dmemout       = (d_opcode_i_2==3'b000 && d2_ready_i==1)? d_data_i_2 : 32'b? ;
+  assign dmemout       = (d_opcode_i_2==3'b001 && d2_ready_i==1)? d_data_i_2 : 32'b? ;
 
   assign channel_a_sel = (memwrite==1 || writeback==1)? 1:0;
   assign a_opcode_o_2  = (memwrite==1)? 3'b000:3'b100;
@@ -108,7 +108,7 @@ module top(
   assign a_data_o_1    = 32'b0;
   assign a_data_o_2    = rs2_out;
   assign a_ready_o_1   = (reset==1)? 1 : 0;
-  assign a_ready_o_2   = (reset==1)? 1 : 0;
+  assign a_ready_o_2   = (reset==1 && (memwrite==1 || writeback==1))? 1 : 0;
   //generating data memory address 
   assign aluoutput1=aluoutput[11:2];
   //alu muxes//                    

@@ -25,21 +25,23 @@ module data_mem(
   assign d_size_o   = a_size_i ;
   assign wen = (a_opcode_i==3'b000)? 1 : 0 ;
   assign ren = (a_opcode_i==3'b100)? 1 : 0 ;
+  assign d_opcode_o = (a_opcode_i==3'b100)? 3'b001:3'b000;
   //assign d_opcode_o = a_opcode_i ;
   bit [31:0] mem [4095:0];
   always @(posedge clk) begin
     if(a_valid_i) begin 
-      d_opcode_o <= a_opcode_i ;
-      
-      d_valid_o  <= (a_valid_i==1)? 1 : 0 ;
+      d_valid_o  <= 1;
       if(wen==1 && a_size_i==2'b10 && a_mask_i==2'b10) begin
         mem[add]<=datain;
       end
     end
+    else d_valid_o  <= 0;
   end
   always_latch begin 
-    if(ren) begin
-        dataout<= mem[add] ;
+    if(a_valid_i) begin 
+      if(ren) begin
+          dataout<= mem[add] ;
+      end
     end
   end
 endmodule
