@@ -1,6 +1,6 @@
-                  =============================
-                  TILELINK UNCAHCED LIGHTWEIGHT
-                  =============================
+                                =============================
+                                TILELINK UNCAHCED LIGHTWEIGHT
+                                =============================
 In this RISCV 32bit integer type single cycle processor the SOC used for 
 providing communication between the main core and the memory units is 
 "TILELINK uncached lightweight" TLUL. Descriptively it consists of two 
