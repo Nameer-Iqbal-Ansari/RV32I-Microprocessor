@@ -1,4 +1,4 @@
-##          TILELINK UNCAHCED LIGHTWEIGHT
+##                   TILELINK UNCAHCED LIGHTWEIGHT
 
 In this RISCV 32bit integer type single cycle processor 
 the SOC used for providing communication between the main 
@@ -19,8 +19,11 @@ The timing diagram for write and read transactions in this core
 is shown below:
 
 WRITE TRANSACTION
+
 ![write transaction](https://user-images.githubusercontent.com/81966301/141778279-86639ce0-b665-49d5-a17c-0f2e102a880c.png)
+
 READ TRANSACTION
+
 ![read transaction](https://user-images.githubusercontent.com/81966301/141778294-0f78bb2c-d6bd-430b-9250-5718fa654a56.png)
 
 references : 
