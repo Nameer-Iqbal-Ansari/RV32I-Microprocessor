@@ -1,6 +1,6 @@
-							=============================
-							TILELINK UNCAHCED LIGHTWEIGHT
-							=============================
+
+##TILELINK UNCAHCED LIGHTWEIGHT
+
 In this RISCV 32bit integer type single cycle processor 
 the SOC used for providing communication between the main 
 core and the memory units is "TILELINK uncached lightweight" 
@@ -17,7 +17,10 @@ valid, ready, opcode, address, data, size, and mask. Similarly
 for channel D valid, ready, opcode, size, and data.
 
 The timing diagram for write and read transactions in this core 
-is shown in “transactions” file.
+is shown below:
+
+![write transaction](https://user-images.githubusercontent.com/81966301/141778279-86639ce0-b665-49d5-a17c-0f2e102a880c.png)
+![read transaction](https://user-images.githubusercontent.com/81966301/141778294-0f78bb2c-d6bd-430b-9250-5718fa654a56.png)
 
 references : 
 * https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwju8I__gZj0AhVpS_EDHWf1AsUQFnoECAYQAQ&url=https%3A%2F%2Fstatic.dev.sifive.com%2Fdocs%2Ftilelink%2Ftilelink-spec-1.7-draft.pdf&usg=AOvVaw0V_m9Ov7Lu1RmF23HzDt9V
