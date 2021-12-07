@@ -1,0 +1,63 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Dec  7 13:22:00 2021
+[*]
+[dumpfile] "/home/nameer/Downloads/rtl/build/top_1.0/sim-verilator/trace.vcd"
+[dumpfile_mtime] "Tue Dec  7 13:22:00 2021"
+[dumpfile_size] 2604118359
+[savefile] "/home/nameer/Downloads/rtl/simulation file.gtkw"
+[timestart] 1652
+[size] 1000 600
+[pos] -39 3
+*-4.000000 38 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top_main.
+[treeopen] TOP.top_main.core.
+[treeopen] TOP.top_main.data_mem_adapter.
+[treeopen] TOP.top_main.inst_mem_adapter.
+[sst_width] 233
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 264
+@200
+-inst mem
+@28
+TOP.top_main.inst_mem_adapter.inst_mem.readEnable
+TOP.top_main.inst_mem_adapter.inst_mem.reset
+@22
+TOP.top_main.inst_mem_adapter.inst_mem.readAddress[11:0]
+TOP.top_main.inst_mem_adapter.inst_mem.readData[31:0]
+@200
+-data mem
+@28
+TOP.top_main.data_mem_adapter.data_m.ren
+TOP.top_main.data_mem_adapter.data_m.wen
+@22
+TOP.top_main.data_mem_adapter.data_m.add[11:0]
+@24
+TOP.top_main.data_mem_adapter.data_m.datain[31:0]
+TOP.top_main.data_mem_adapter.data_m.dataout[31:0]
+@200
+-reg file
+@28
+TOP.top_main.core.rf.write_enable
+@24
+TOP.top_main.core.rf.rs1[4:0]
+TOP.top_main.core.rf.rs2[4:0]
+TOP.top_main.core.rf.write_data[31:0]
+TOP.top_main.core.rf.rd[4:0]
+TOP.top_main.core.rf.reg_array[1][31:0]
+TOP.top_main.core.rf.reg_array[2][31:0]
+TOP.top_main.core.rf.reg_array[5][31:0]
+TOP.top_main.core.rf.reg_array[6][31:0]
+TOP.top_main.core.rf.reg_array[7][31:0]
+TOP.top_main.core.rf.reg_array[9][31:0]
+TOP.top_main.core.rf.reg_array[10][31:0]
+TOP.top_main.core.rf.reg_array[12][31:0]
+TOP.top_main.core.rf.reg_array[13][31:0]
+TOP.top_main.core.rf.reg_array[14][31:0]
+TOP.top_main.core.rf.reg_array[15][31:0]
+@25
+TOP.top_main.core.rf.reg_array[31][31:0]
+[pattern_trace] 1
+[pattern_trace] 0
