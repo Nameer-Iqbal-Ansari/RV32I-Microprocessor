@@ -41,6 +41,6 @@ To run the core just clone the repo and copy paste the rtl folder in $USER/Downl
 2) Then go to cd build/top_1.0/sim-verilator
 3) open the trace.vcd file to see waveform
 
-link of risv assembly codes and thier hexa values. (tested codes)
+link of riscv assembly codes and their hexa values. (tested codes)
 https://docs.google.com/spreadsheets/d/14NU7tBv-i7zpZHIYiMBVQ3DX
 mnE4UchTyx7spAzkmaI/edit#gid=1593725999
