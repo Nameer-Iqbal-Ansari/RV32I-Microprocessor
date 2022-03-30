@@ -22,9 +22,11 @@ includes the following blocks:
 - ALU controller 
 And many multiplexers and memories from the top file veiw.
 <img align="center" src="https://github.com/Nameer-Iqbal-Ansari/riscv32-bit-i-single-cycle-microprocessor/blob/master/image_07397726-0dba-4501-9f70-7fe3be3ec49f20220329_230347.jpg" />
+
 -------
 level 2:
 -------
+
 After implementing on a drag and drop software called 
 logisim. It is then coded in a hardware discriptive language
 called SYSTEMVERILOG.In further upgradation a bus architechture
