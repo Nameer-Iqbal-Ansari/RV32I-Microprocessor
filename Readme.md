@@ -21,7 +21,7 @@ includes the following blocks:
 - ALU controller
 And many multiplexers and memories from the top file veiw.
 
-<img align="center" src="https://github.com/Nameer-Iqbal-Ansari/RV32I-Microprocessor/image_07397726-0dba-4501-9f70-7fe3be3ec49f20220329_230347.jpg" />
+<img align="center" src="circuit_diagram.jpg" />
 
 ## Phase 2:
 After implementing on a drag and drop software called
@@ -38,7 +38,7 @@ using fusesoc.
 ## To RUN the core
 To run the core :
 1) Clone the repo.
-4) Run the following commands from repo root Dir :
+4) Run the following :
    ```
    cd RV32I-Microprocessor
    ```
@@ -46,7 +46,7 @@ To run the core :
    fusesoc --cores-root=. run --target=sim top --vcd
    ```
 5) To see wave form output on gtk-wave :
-   `cd RV32I-Microprocessor/build/top_1.0/sim-verilator`
+   `cd build/top_1.0/sim-verilator`
 6) Open the `trace.vcd` file to see waveform
 
 ## Sample Tests
