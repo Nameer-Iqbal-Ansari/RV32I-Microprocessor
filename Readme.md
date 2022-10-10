@@ -38,6 +38,7 @@ using fusesoc.
 ## To RUN the core
 To run the core :
 1) Clone the repo.
+2) Change the `inst.mem` file path in `Basic/rtl/top/i_mem.sv`
 4) Run the following :
    ```
    cd RV32I-Microprocessor
