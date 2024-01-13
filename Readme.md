@@ -38,10 +38,10 @@ using fusesoc.
 ## To RUN the core
 To run the core :
 1) Clone the repo.
-2) Change the `inst.mem` file path in `Basic/rtl/top/i_mem.sv`
+2) Change the ```inst.mem``` file path in ```Basic/rtl/top/i_mem.sv``` file.
 4) Run the following :
    ```
-   cd RV32I-Microprocessor
+   cd RV32I-Microprocessor/Basic
    ```
    ```
    fusesoc --cores-root=. run --target=sim top --vcd
