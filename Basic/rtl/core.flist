@@ -1,0 +1,19 @@
+# UVM base library
+#-uvmhome $UVMHOME
+/home/niansari/Downloads/uvm-1.2/src/uvm_macros.svh
+/home/niansari/Downloads/uvm-1.2/src/uvm_pkg.sv
+/home/niansari/Downloads/uvm-1.2/src/uvm.sv
+# Design
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/alu.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/branchalu.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/channel_a.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/channel_d.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/cu.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/data_mem_adapter.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/d_mem.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/i_mem.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/immgen.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/inst_mem_adapter.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/reg_file.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/top_main.sv  
+/home/niansari/Desktop/RV32I-Microprocessor/Basic/rtl/top/top.sv
