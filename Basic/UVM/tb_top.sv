@@ -1,26 +1,30 @@
-module tb_top
-    import uvm_pkg::*;
-    `include "uvm_macros.svh";
-
+module tb_top;
+    //`include "test_pkg/test1_pkg.sv"
+    import uvm_pkg::*;      		 // For using uvm libraries
+    import test1_pkg::*;
+	`include "uvm_macros.svh"    // To make use of macros that are found in uvm libraries
+    // Signal declaration
     bit clk;
-    always #2 clk=~clk;
+    // Clock generation
+	always #20 clk <= ~clk;
 
     vir_int dut_int(.clock(clk));
     
     top_main dut_core (
-        .clk(dut_int.clock),
+        .clk(clk),
         .reset(dut_int.reset),
         .ouput_led(dut_int.led)
     );
 
     initial begin
+        clk <= 0;
         //passing the interface to test through uvm database property useage
         uvm_config_db#(virtual vir_int)::set(null,"uvm_test_top"/*sort of connecting
         the interface to uvm builtin test*/,"vir_int",dut_int);
-        run_test ("test1");
+        run_test ();
     end
-    initial begin
-        $dumpvars;
+    initial begin    
+        //$dumpvars(1);
         $dumpfile("test1.vcd");
     end
    

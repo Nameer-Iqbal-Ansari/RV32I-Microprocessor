@@ -17,7 +17,7 @@ reg  [DATA_WIDTH-1:0]     sram [0:MEM_DEPTH-1];
 //--------------Code Starts Here------------------
 assign readData = (readEnable)? sram[readAddress] : 32'b0;
 initial begin
-    $readmemh ("/home/merl-lab/RV32I-Microprocessor/Basic/rtl/inst.mem",sram);
+    $readmemh ("/home/zrafique/Desktop/Nameers_work/RV32I-Microprocessor/fpga integrated/fpga tested.srcs/sources_1/imports/inst.mem",sram);
   end
 always@(posedge clock) begin
 if(reset) if(writeEnable)sram[writeAddress] <= writeData;

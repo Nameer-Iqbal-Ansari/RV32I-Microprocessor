@@ -35,10 +35,10 @@ memories (host to device) and viseversa.
 After interconnecting whole processor it is tested on verilator
 using fusesoc.
 
-## To RUN the core
+## To RUN the core using fusesoc
 To run the core :
 1) Clone the repo.
-2) Change the ```inst.mem``` file path in ```Basic/rtl/top/i_mem.sv``` file.
+2) Change the ```inst.mem``` file path in ```Basic/rtl/src/i_mem.sv``` file.
 4) Run the following :
    ```
    cd RV32I-Microprocessor/Basic
@@ -49,6 +49,10 @@ To run the core :
 5) To see wave form output on gtk-wave :
    `cd build/top_1.0/sim-verilator`
 6) Open the `trace.vcd` file to see waveform
+
+## To run UVM verification
+1) ```cd RV32I-Microprocessor/Basic```
+2) ```source command```
 
 ## Sample Tests
 link of riscv assembly codes and their hexa values. (tested codes)

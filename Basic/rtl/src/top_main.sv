@@ -32,8 +32,6 @@ clk_wiz_0  clk_wiz
              .clock_in(clk1),
              .clock_out(clk)
              );*/
-assign ouput_led[0] = a2_valid_o;
-assign ouput_led[1] = d1_valid_o;
 `ifdef RISCV_FORMAL
   logic 		   rvfi_valid = 1'b0;
   logic [11:0] rvfi_order = 12'd0;
@@ -107,6 +105,8 @@ logic [31:0] rd_wdata;
   logic [1:0]  d2_size_o;
   logic [31:0] d2_data_o;
 
+assign ouput_led[0] = a2_valid_o;
+assign ouput_led[1] = d1_valid_o;
 `ifdef RISCV_FORMAL
   always_comb begin 
     rvfi_valid = a_ready_i_1;

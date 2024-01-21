@@ -1,16 +1,18 @@
-class my_seq extends uvm_sequencer;
-`uvm_component_utils(my_seq)
-    function new(string name = "my_seq",uvm_component parent = null);
-        super.new(name,parent);
-    endfunction //new()
-    `uvm_declare_p_sequencer (my_seq)
-    task pre_body();
+class my_seq extends uvm_sequence #(test_seq_item);
+    `uvm_object_utils(my_seq)
 
-    endtask
-    task body();
+    function new(string name = "my_seq");
+        super.new(name);
+    endfunction // new
 
-    endtask
-    task post_body();
-
-    endtask
-endclass //my_seq extends uvm_sequencer
+    virtual task body();
+        for (int i= 0; i<100; i++) begin
+        // Create a sequence item
+            test_seq_item item = test_seq_item::type_id::create("item");
+            start_item(item);
+            item.randomize();
+            `uvm_info("Sequencer::",$sformatf("Generate new items: %s",item.print_seq()),UVM_HIGH)
+            finish_item(item);
+        end
+    endtask // body
+endclass // my_seq

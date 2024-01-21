@@ -4,19 +4,19 @@ name : ::top:1.0
 filesets:
   risc:
     files:
-      - top/alu.sv
-      - top/branchalu.sv
-      - top/channel_a.sv
-      - top/channel_d.sv
-      - top/cu.sv
-      - top/i_mem.sv
-      - top/d_mem.sv
-      - top/data_mem_adapter.sv
-      - top/immgen.sv
-      - top/inst_mem_adapter.sv
-      - top/reg_file.sv
-      - top/top.sv
-      - top/top_main.sv
+      - src/alu.sv
+      - src/branchalu.sv
+      - src/channel_a.sv
+      - src/channel_d.sv
+      - src/cu.sv
+      - src/i_mem.sv
+      - src/d_mem.sv
+      - src/data_mem_adapter.sv
+      - src/immgen.sv
+      - src/inst_mem_adapter.sv
+      - src/reg_file.sv
+      - src/top.sv
+      - src/top_main.sv
     file_type : systemVerilogSource
 
   tb: 

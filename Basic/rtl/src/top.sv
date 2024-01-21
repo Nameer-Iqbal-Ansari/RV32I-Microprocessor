@@ -143,7 +143,8 @@ end
     .jal_imm(jal_add),
     .imm(imm));
   
-  alu alu_i( .aluout(aluoutput),
+  alu alu_i( 
+          .aluout(aluoutput),
           .alusel(alucontrol),
           .input_a(a_alu),
           .input_b(b_alu));
