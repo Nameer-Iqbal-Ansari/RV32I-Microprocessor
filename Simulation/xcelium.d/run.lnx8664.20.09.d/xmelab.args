@@ -1,0 +1,21 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++UVM_VERBOSITY=UVM_LOW
++UVM_OBJECTION_TRACE
++define+UVM_REPORT_DISABLE_FILE_LINE
+-loadpli
+/opt/cadence/installs/XCELIUM2009/tools/methodology/UVM/CDNS-1.2/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
++UVM_TESTNAME=test1
+-MESSAGES
+-XLMODE
+./xcelium.d/run.lnx8664.20.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.20.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.20.09.d/hdl.var
+-WORK
+worklib
+-HASXLMODE

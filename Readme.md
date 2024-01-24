@@ -1,17 +1,12 @@
 # RV32I MICROPROCESSOR
 
 ## Phase 1:
-This is a Single Cycle RISCV Processor in which all integer
-type commands and operations can be performed
-(including jal,jalr,branch commands etc).Both
-sequential and control flow operations can be
-executed on this microprocessor. I have used RISCV assembly
-language instructions to decorde them through opcodes
-then the respective signals gets onn and all the
-instructions breakdown into pieces including
-opcode, immediate ( constant ,if their any ),
-alu operation ,registers etc.All this is done on
-logisim software. This microprocessor
+This is a Single Cycle RISCV Processor in which all integer type commands and operations 
+can be performed (including jal,jalr,branch commands etc).Both sequential and control flow 
+operations can be executed on this microprocessor. I have used RISCV assembly language 
+instructions to decorde them through opcodes then the respective signals gets onn and all the
+instructions breakdown into pieces including opcode, immediate ( constant ,if their any ),
+alu operation ,registers etc.All this is done on logisim software. This microprocessor 
 includes the following blocks:
 - immediate generation block
 - opcode decoder
@@ -35,13 +30,13 @@ memories (host to device) and viseversa.
 After interconnecting whole processor it is tested on verilator
 using fusesoc.
 
-## To RUN the core using fusesoc
+## To RUN simulation using fusesoc
 To run the core :
 1) Clone the repo.
-2) Change the ```inst.mem``` file path in ```Basic/rtl/src/i_mem.sv``` file.
+2) Change the ```inst.mem``` file path in ```Simulation/rtl/src/i_mem.sv``` file.
 4) Run the following :
    ```
-   cd RV32I-Microprocessor/Basic
+   cd Simulation
    ```
    ```
    fusesoc --cores-root=. run --target=sim top --vcd
@@ -51,10 +46,10 @@ To run the core :
 6) Open the `trace.vcd` file to see waveform
 
 ## To run UVM verification
-1) ```cd RV32I-Microprocessor/Basic```
-2) ```source command```
+1) ```cd Simulation```
+2) ```./command```
 
 ## Sample Tests
-link of riscv assembly codes and their hexa values. (tested codes)
-https://docs.google.com/spreadsheets/d/14NU7tBv-i7zpZHIYiMBVQ3DX
-mnE4UchTyx7spAzkmaI/edit#gid=1593725999
+There's a folder in ```Simulation/rtl/tests``` which contains the assembly tests, 
+convert them into hex using (venus)[https://venus.kvakil.me/] and as above mentioned 
+update the hex file path in   ```inst.mem``` and run.

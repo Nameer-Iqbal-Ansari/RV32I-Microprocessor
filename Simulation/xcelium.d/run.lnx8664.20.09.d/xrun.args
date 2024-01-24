@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-clean
+-f
+./rtl/file_list/core.f
+-svseed
+random
++UVM_TESTNAME=test1
++UVM_VERBOSITY=UVM_LOW
++define+UVM_REPORT_DISABLE_FILE_LINE
++UVM_OBJECTION_TRACE
