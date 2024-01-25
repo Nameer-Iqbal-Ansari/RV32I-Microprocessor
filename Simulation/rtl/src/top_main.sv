@@ -153,21 +153,23 @@ assign ouput_led[1] = d1_valid_o;
   `endif
     .clk (clk),
     .reset (reset),
-    //outputs
+    //request out for instruction memory interface
     .a_opcode_o_1  (a_opcode_i_1),
-    .a_opcode_o_2  (a_opcode_i_2),
     .a_address_o_1 (a_address_i_1),
-    .a_address_o_2 (a_address_i_2),
     .a_data_o_1    (a_data_i_1),//nothing to do
-    .a_data_o_2    (a_data_i_2),
     .a_ready_o_1   (a_ready_i_1),
-    .a_ready_o_2   (a_ready_i_2),
-    //inputs
+    //response in from instruction memory interface
     .d1_ready_i    (d1_ready_i),  
-    .d2_ready_i    (d2_ready_i),  
-    .d_data_i_1    (d_data_i_1),
-    .d_data_i_2    (d_data_i_2),
+    .d_data_i_1    (d_data_i_1),  
     .d_opcode_i_1  (d_opcode_i_1),
+    //request out for data memory interface
+    .a_opcode_o_2  (a_opcode_i_2),
+    .a_address_o_2 (a_address_i_2),
+    .a_data_o_2    (a_data_i_2),
+    .a_ready_o_2   (a_ready_i_2),
+    //response in from data memory interface
+    .d2_ready_i    (d2_ready_i),
+    .d_data_i_2    (d_data_i_2),
     .d_opcode_i_2  (d_opcode_i_2)
   );
 

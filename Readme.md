@@ -1,7 +1,7 @@
 # RV32I MICROPROCESSOR
 
 ## Phase 1:
-This is a Single Cycle RISCV Processor in which all integer type commands and operations 
+A RV32I RISCV Processor in which all integer type commands and operations 
 can be performed (including jal,jalr,branch commands etc).Both sequential and control flow 
 operations can be executed on this microprocessor. I have used RISCV assembly language 
 instructions to decorde them through opcodes then the respective signals gets onn and all the
@@ -16,7 +16,7 @@ includes the following blocks:
 - ALU controller
 And many multiplexers and memories from the top file veiw.
 
-<img align="center" src="circuit_diagram.jpg" />
+<img align="center" src="Doc/circuit_diagram.jpg" />
 
 ## Phase 2:
 After implementing on a drag and drop software called
@@ -48,6 +48,10 @@ To run the core :
 ## To run UVM verification
 1) ```cd Simulation```
 2) ```./command```
+
+## To run jaspergold
+1) ```cd Simulation```
+2) ```jg jaspergold.tcl```
 
 ## Sample Tests
 There's a folder in ```Simulation/rtl/tests``` which contains the assembly tests, 
