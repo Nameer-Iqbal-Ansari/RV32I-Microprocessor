@@ -1,6 +1,7 @@
 # RV32I MICROPROCESSOR
 
-## Phase 1:
+## DESIGN 
+### Phase 1:
 A RV32I RISCV Processor in which all integer type commands and operations 
 can be performed (including jal,jalr,branch commands etc).Both sequential and control flow 
 operations can be executed on this microprocessor. I have used RISCV assembly language 
@@ -18,7 +19,7 @@ And many multiplexers and memories from the top file veiw.
 
 <img align="center" src="Doc/circuit_diagram.jpg" />
 
-## Phase 2:
+### Phase 2:
 After implementing on a drag and drop software called
 logisim. It is then coded in a hardware discriptive language
 called SYSTEMVERILOG.In further upgradation a bus architechture
@@ -27,31 +28,35 @@ processor which provides communication between memories and core.
 For which 2 channel A are used for request signals
 and 2 channel D are used for response signals from core to
 memories (host to device) and viseversa.
-After interconnecting whole processor it is tested on verilator
-using fusesoc.
+After interconnecting whole processor it is tested on verilator and questa so far.
 
-## To RUN simulation using fusesoc
-To run the core :
+## SIMULATION
+To run the Simulation :
 1) Clone the repo.
 2) Change the ```inst.mem``` file path in ```Simulation/rtl/src/i_mem.sv``` file.
-4) Run the following :
+3) Go to simulation dir :
    ```
    cd Simulation
    ```
-   ```
+### To run on Verilator using FuseSoC
+4) ```
    fusesoc --cores-root=. run --target=sim top --vcd
    ```
-5) To see wave form output on gtk-wave :
-   `cd build/top_1.0/sim-verilator`
-6) Open the `trace.vcd` file to see waveform
-
-## To run UVM verification
-1) ```cd Simulation```
-2) ```./command```
-
+5) To see static waveform output on gtk-wave :
+   ``` cd build/top_1.0/sim-verilator ```
+   ``` gtkwave trace.vcd ```
+### To run UVM verification using Questa
+4) ```
+   make sim
+   ```
+5) For GUI based simulation
+   ```
+   make simgui
+   ```
 ## To run jaspergold
-1) ```cd Simulation```
-2) ```jg jaspergold.tcl```
+4) ```
+   jg jaspergold.tcl
+   ```
 
 ## Sample Tests
 There's a folder in ```Simulation/rtl/tests``` which contains the assembly tests, 

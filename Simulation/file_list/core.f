@@ -1,9 +1,9 @@
 # UVM base library
--uvmhome $UVMHOME
+// -uvmhome $UVMHOME
 
 # Include directory of design and verification
 #-incdir ./rtl/src
--incdir ./UVM
+// -incdir ./UVM
 
 # Package and top module to compile and simulate
 ./UVM/test1_pkg.sv

@@ -23,9 +23,4 @@ module tb_top;
         the interface to uvm builtin test*/,"vir_int",dut_int);
         run_test ();
     end
-    initial begin    
-        //$dumpvars(1);
-        $dumpfile("test1.vcd");
-    end
-   
 endmodule
