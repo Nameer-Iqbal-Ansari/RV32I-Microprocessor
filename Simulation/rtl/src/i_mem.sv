@@ -12,14 +12,14 @@ module i_mem #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 12) (
 );
 
 localparam MEM_DEPTH = 4096;
-reg  [DATA_WIDTH-1:0]     sram [0:MEM_DEPTH-1];
+logic  [DATA_WIDTH-1:0]     sram [MEM_DEPTH-1:0];
 
 //--------------Code Starts Here------------------
-assign readData = (readEnable)? sram[readAddress] : 32'b0;
-initial begin
+  assign readData = (readEnable)? sram[readAddress] : 32'b0;
+  initial begin
     $readmemh ("/home/niansari/Desktop/RV32I-Microprocessor/Simulation/rtl/inst.mem",sram);
   end
-always@(posedge clock) begin
-if(reset) if(writeEnable)sram[writeAddress] <= writeData;
-end
+  always@(posedge clock) begin
+  if(reset) if(writeEnable)sram[writeAddress] <= writeData;
+  end
 endmodule

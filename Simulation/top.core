@@ -34,6 +34,7 @@ targets:
     parameters: 
       - vcd
       - vcd_start
+      - timeout
 
     tools:
       verilator:
@@ -46,6 +47,11 @@ parameters:
     paramtype: plusarg
 
   vcd_start:
+    datatype: int 
+    description: delay start of VCD dumping unitl the specified time
+    paramtype: plusarg 
+    
+  timeout:
     datatype: int 
     description: delay start of VCD dumping unitl the specified time
     paramtype: plusarg 

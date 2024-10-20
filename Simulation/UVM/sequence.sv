@@ -11,7 +11,7 @@ class my_seq extends uvm_sequence #(test_seq_item);
             test_seq_item item = test_seq_item::type_id::create("item");
             start_item(item);
             item.randomize();
-            `uvm_info("Sequencer::",$sformatf("Generate new items: %s",item.print_seq()),UVM_LOW)
+            // `uvm_info("Sequencer::",$sformatf("Generate new items: %s",item.print_seq()),UVM_LOW)
             finish_item(item);
         end
     endtask // body

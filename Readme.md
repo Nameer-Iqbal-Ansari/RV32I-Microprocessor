@@ -40,7 +40,7 @@ To run the Simulation :
    ```
 ### To run on Verilator using FuseSoC
 4) ```
-   fusesoc --cores-root=. run --target=sim top --vcd
+   fusesoc --cores-root=. run --target=sim top --vcd --timeout 100000
    ```
 5) To see static waveform output on gtk-wave :
    ``` cd build/top_1.0/sim-verilator ```

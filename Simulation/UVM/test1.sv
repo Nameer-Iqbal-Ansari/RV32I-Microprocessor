@@ -29,10 +29,10 @@ class test1 extends uvm_test;
         
         // Start the sequence using the sequencer from the configuration 
         seq.start(env.agnt.my_seqr);
-        #1000ns
+        // #1000ns
         //phase.phase_done.set_drain_time(this, 100/*time in ns*/); //delay
         // Drop objection after the sequence completes
-        phase.drop_objection(this,"End SEQ");
+        // phase.drop_objection(this,"End SEQ");
     endtask
     function void /*tx_test::*/end_of_elaboration_phase(uvm_phase phase);
 		// top class is uvm_root, uvm_top is the instance name of uvm_root

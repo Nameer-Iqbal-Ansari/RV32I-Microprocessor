@@ -14,7 +14,7 @@ class test_driv extends uvm_driver #(test_seq_item);
         `uvm_info("Driver::",$sformatf("____In the run phase____"),UVM_LOW);
         repeat(10) begin
             test_seq_item item;
-            `uvm_info("Driver::",$sformatf("Waiting for item from sequencer"),UVM_LOW)
+            // `uvm_info("Driver::",$sformatf("Waiting for item from sequencer"),UVM_LOW)
             seq_item_port.get_next_item(item);
             send_trans(item);
             seq_item_port.item_done();

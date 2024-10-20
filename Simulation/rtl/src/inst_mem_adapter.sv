@@ -15,20 +15,21 @@ module inst_mem_adapter (
     output  logic  [31:0] d_data_o
     );
     //translating memory's signals to bus
-    logic        en1         = a_valid_i;
-    logic [11:0]  add         = a_address_i ;
-    assign d_valid_o = (en1)? 1:0;
+    assign d_valid_o = a_valid_i;
     assign d_size_o = (a_mask_i==2'b10)? a_size_i:2'b10;
     assign d_opcode_o = (a_opcode_i==3'b100)? 3'b001:3'b000;
-   i_mem inst_mem(
-           .clock(clk),
-           .reset(reset),
-           .readEnable(en1),
-           .readAddress(add),
-           .readData(d_data_o),
-           .writeEnable(1'b0),
-           .writeAddress(12'b0),
-           .writeData(a_data_i)
+   i_mem #(
+    .DATA_WIDTH(32),
+    .ADDR_WIDTH(12)
+  ) inst_mem(
+       .clock(clk),
+       .reset(reset),
+       .readEnable(a_valid_i),
+       .readAddress(a_address_i),
+       .readData(d_data_o),
+       .writeEnable(1'b0),
+       .writeAddress(12'b0),
+       .writeData(a_data_i)
  );
  
 endmodule

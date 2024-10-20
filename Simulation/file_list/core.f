@@ -27,4 +27,4 @@
 ./rtl/src/top_main.sv
 
 # UVM VIP top
-./UVM/tb_top.sv
+./rtl/tb/tb_top.sv

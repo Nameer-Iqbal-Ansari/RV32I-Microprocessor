@@ -21,9 +21,13 @@ logic ren;
   assign wen = (a_opcode_i==3'b000)? 1 : 0 ;
   assign ren = (a_opcode_i==3'b100)? 1 : 0 ;
   assign d_opcode_o = (a_opcode_i==3'b100)? 3'b001:3'b000;
-  assign d_valid_o = (a_valid_i)? 1:0;
+  assign d_valid_o = a_valid_i;
 
-  d_mem data_m(
+  d_mem #(
+    .DATA_WIDTH(32),
+    .ADDR_WIDTH(12)
+  )
+    data_m(
     .clk(clk),
     .wen(wen),
     .ren(ren),

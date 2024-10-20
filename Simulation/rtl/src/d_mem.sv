@@ -1,16 +1,18 @@
-module d_mem(
+module d_mem #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 12) (
   input logic clk,
   input logic wen,
   input logic ren,
-  input logic [11:0]  add,
-  output logic [31:0] dataout,
-  input logic [31:0] datain
+  input logic [ADDR_WIDTH-1:0]  add,
+  output logic [DATA_WIDTH-1:0] dataout,
+  input logic [DATA_WIDTH-1:0]  datain
 );  
-  reg [31:0] mem [4095:0];
+  localparam MEM_DEPTH = 4096;
+  logic  [DATA_WIDTH-1:0]     sram [MEM_DEPTH-1:0];
+  
+  assign dataout= (ren==1)? sram[add]:32'b? ;
   always @(posedge clk) begin
     if(wen==1) begin
-      mem[add]<=datain;
+      sram[add]<=datain;
     end
   end
-  assign dataout= (ren==1)? mem[add]:32'b? ;
 endmodule
