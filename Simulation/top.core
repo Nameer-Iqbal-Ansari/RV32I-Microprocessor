@@ -4,24 +4,24 @@ name : ::top:1.0
 filesets:
   risc:
     files:
-      - rtl/src/alu.sv
-      - rtl/src/branchalu.sv
-      - rtl/src/channel_a.sv
-      - rtl/src/channel_d.sv
-      - rtl/src/cu.sv
-      - rtl/src/i_mem.sv
-      - rtl/src/d_mem.sv
-      - rtl/src/data_mem_adapter.sv
-      - rtl/src/immgen.sv
-      - rtl/src/inst_mem_adapter.sv
-      - rtl/src/reg_file.sv
-      - rtl/src/top.sv
-      - rtl/src/top_main.sv
+      - src/alu.sv
+      - src/branchalu.sv
+      - src/channel_a.sv
+      - src/channel_d.sv
+      - src/cu.sv
+      - src/i_mem.sv
+      - src/d_mem.sv
+      - src/data_mem_adapter.sv
+      - src/immgen.sv
+      - src/inst_mem_adapter.sv
+      - src/reg_file.sv
+      - src/top.sv
+      - src/top_main.sv
     file_type : systemVerilogSource
 
   tb: 
     files:
-      - rtl/tb/top_main.cpp
+      - tb/top_main.cpp
     file_type: cppSource
 
 targets:

@@ -45,12 +45,12 @@ vluint64_t vcd_start = 0;
 
         if (dump)  vcd_file->dump(main_time);
         
-        if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[1024]==1) { // temp to host value and address
+        if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[0xffb]==0xdeadbeaf) { // temp to host value and address
           my_top->reset = 0;
 	        printf("\n\033[32m=========================================\033[0m\n\033[32m===============TEST PASSED===============\033[0m\n\033[32m=========================================\033[0m\n");
           break;
         }
-        else if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[1024]==2) { // temp to host value and address
+        else if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[0xffb]==0) { // temp to host value and address
           my_top->reset = 0;
 	        printf("\n\033[31m=========================================\033[0m\n\033[31m===============TEST FAILED===============\033[0m\n\033[31m=========================================\033[0m\n");
           break;

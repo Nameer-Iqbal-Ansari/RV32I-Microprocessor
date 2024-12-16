@@ -33,7 +33,6 @@ After interconnecting whole processor it is tested on verilator and questa so fa
 ## SIMULATION
 To run the Simulation :
 1) Clone the repo.
-2) Change the ```inst.mem``` file path in ```Simulation/rtl/src/i_mem.sv``` file.
 3) Go to simulation dir :
    ```
    cd Simulation

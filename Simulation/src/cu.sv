@@ -36,7 +36,7 @@ module cu(
     `endif 
     r =0; i=0; s=0; lui=0;auipc=0;jal=0;b=0;jalr=0;lw=0;
     bands=0; opA=2'b00; opB=0 ; memwrite=0; 
-    immsel=2'b00 ; writeback=0 ; regfile =0; pcsel=3'b111; 
+    immsel=2'b00 ; writeback=0 ; regfile =0; pcsel=3'b000; 
     jalr=0; aluop210=3'b000;  
     case(opcode) 
         7'b0110011: begin 
@@ -227,19 +227,19 @@ module cu(
       7'b1011110: alucontrol=4'b0010; 
       7'b1011111: alucontrol=4'b0010; 
       7'b1100000: alucontrol=4'b1110; 
-      7'b1100001: alucontrol=4'b1111; 
-      7'b1100010: alucontrol=4'b1111; 
-      7'b1100011: alucontrol=4'b0111; 
+      7'b1100001: alucontrol=4'b1110; 
+      7'b1100010: alucontrol=4'b1110; 
+      7'b1100011: alucontrol=4'b1110; 
       7'b1100100: alucontrol=4'b1110; 
-      7'b1100101: alucontrol=4'b1111; 
-      7'b1100110: alucontrol=4'b1111; 
-      7'b1100111: alucontrol=4'b1111; 
+      7'b1100101: alucontrol=4'b1110; 
+      7'b1100110: alucontrol=4'b1110; 
+      7'b1100111: alucontrol=4'b1110; 
       7'b1101000: alucontrol=4'b1110; 
       7'b1101001: alucontrol=4'b1110; 
-      7'b1101010: alucontrol=4'b1111; 
+      7'b1101010: alucontrol=4'b1110; 
       7'b1101011: alucontrol=4'b1110; 
-      7'b1101100: alucontrol=4'b1111; 
-      7'b1101101: alucontrol=4'b1111; 
+      7'b1101100: alucontrol=4'b1110; 
+      7'b1101101: alucontrol=4'b1110; 
       7'b1101110: alucontrol=4'b1110; 
       7'b1101111: alucontrol=4'b1110; 
       7'b1110000: alucontrol=4'b1111; 

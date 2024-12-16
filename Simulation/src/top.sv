@@ -35,15 +35,15 @@ module top(
   
   logic  channel_a_sel;
   //instruction memory signals
-  logic [9:0] address;
+  logic [11:0] address;
   logic [31:0] dataout;
   //data memory signals
   logic [31:0] dmemout;
   logic memwrite;
-  logic [10:1] aluoutput1;
   logic [31:0] rs2_out;
   //initializing the signals to communicate with modules
   
+  logic [31:0] next_pc;
   logic [31:0] pcreg;
   logic [31:0] branch_add;
   logic [31:0] aluoutput;
@@ -60,7 +60,11 @@ module top(
   logic writeback;
   logic regfile;
   logic [2:0] pcsel;
+  // verilator lint_off LATCH
+  // verilator lint_off UNOPTFLAT
   logic branchtrue;
+  // verilator lint_on LATCH
+  // verilator lint_on UNOPTFLAT
   logic [31:0] rs1_out;
   logic [31:0] writein_reg;
   logic jalr_en;
@@ -84,18 +88,16 @@ module top(
   assign a_opcode_o_2  = (memwrite==1)? 3'b000:3'b100;
   assign a_opcode_o_1  = 3'b100;
 
-  assign address =(reset)?pcreg[11:2]:10'd0;
+  assign address =(reset)?pcreg[11:0]:12'd0;
   
-  assign a_address_o_1 = {2'b00,address};
-  assign a_address_o_2 = (channel_a_sel==1)? {2'b01,aluoutput1} : 12'b?; 
+  assign a_address_o_1 = address;
+  assign a_address_o_2 = (channel_a_sel==1)? aluoutput[11:0] : 12'b?; 
   assign a_data_o_1    = 32'b0;
   assign a_data_o_2    = rs2_out;
   assign a_ready_o_1   = (reset==1)? 1 : 0;
   assign a_ready_o_2   = (reset==1 && (memwrite==1 || writeback==1))? 1 : 0;
-  //generating data memory address 
-  assign aluoutput1=aluoutput[11:2];
   //alu muxes//                    
-  assign a_alu = opA==2'b00 ? pcreg+4:(opA==2'b01 ? rs1_out :(opA==2'b10 ? pcreg : 32'b?));
+  assign a_alu = opA==2'b00 ? pcreg+4:(opA==2'b01 ? rs1_out :(opA==2'b10 ? pcreg : 32'b0));
   assign b_alu = opB==0 ? rs2_out : imm;
   //data memory muxes//
   assign r1 = writeback==0 ? aluoutput:dmemout;
@@ -105,12 +107,13 @@ module top(
 always @(posedge clk) begin
   if(reset) begin
   case(pcsel)
-      3'b00: pcreg<=pcreg+32'b100;
-      3'b01: pcreg<=$signed(branch_add);
-      3'b10: pcreg<=$signed(jal_add);
-      3'b11: pcreg<=jalr_add;
-      default:pcreg<=32'b0;
+      3'b00: next_pc<=pcreg+32'd4;
+      3'b01: next_pc<=$signed(branch_add);
+      3'b10: next_pc<=$signed(jal_add);
+      3'b11: next_pc<=jalr_add;
+      default:next_pc<=32'b0;
   endcase
+      pcreg <= next_pc; 
   end
   else pcreg   <=32'b00;
 end 
@@ -120,7 +123,7 @@ end
   `ifdef RISCV_FORMAL
                  .reg_file_en(reg_file_en),
   `endif
-                  .opcode(dataout[6:0]),
+                 .opcode(dataout[6:0]),
                  .func210(dataout[14:12]),
                  .func7(dataout[30]),
                  .bands(bands),
@@ -162,6 +165,7 @@ end
   branchalu balu( .func210(dataout[14:12]),
                  .branchtrue(branchtrue),
                  .rs1(rs1_out),
-                 .rs2(rs2_out));
+                 .rs2(rs2_out),
+                 .en(bands));
 
 endmodule

@@ -1,24 +1,29 @@
 addi x2, x0, 1
 addi x1, x0, 0
 
-addi x16, x0, 2047 # to host address
+li x16,0xffb    # to host address
 addi x10, x0, 10 # number of iterations
 addi x20, x0, 0
 addi x12, x0, 89 # expected answer for x10 iterations
 start:
     add x3, x1, x2
-    sw x3,(0x0)x0
+    sw x3,(0xff)x0
     addi x1, x2, 0
     add x2, x3, x0
     
     addi x20, x20, 1
     bne x10, x20, start
-    
-lw  x11, (0x0)x0
+lw  x11, (0xff)x0
 beq x11, x12, pass
-addi x31, x0,20 # to host register write
+addi x31, x0,0 # to host register write
 jal to_host
 pass: 
-addi  x31, x0, 10
+lui x31, 0xdeadb
+addi x19,x19,0x757
+addi x19,x19,0x758
+or x31, x31, x19
 to_host:
 sw x31, (0x0) x16 # to host address
+
+spin:
+jal spin
