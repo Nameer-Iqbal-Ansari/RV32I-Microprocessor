@@ -104,19 +104,24 @@ module top(
   assign r2 = jalr_en==0 ? r1 : pcreg+4 ;
   assign writein_reg = bands==0 ? r2 : 32'b?;
   //generating the address//
-always @(posedge clk) begin
-  if(reset) begin
-  case(pcsel)
-      3'b00: next_pc<=pcreg+32'd4;
-      3'b01: next_pc<=$signed(branch_add);
-      3'b10: next_pc<=$signed(jal_add);
-      3'b11: next_pc<=jalr_add;
-      default:next_pc<=32'b0;
-  endcase
-      pcreg <= next_pc; 
+  always_comb begin
+    if(reset) begin
+      case(pcsel)
+            3'b00: next_pc=pcreg+32'd4;
+            3'b01: next_pc=$signed(branch_add);
+            3'b10: next_pc=$signed(jal_add);
+            3'b11: next_pc=jalr_add;
+            default:next_pc=32'b0;
+      endcase
+    end
+    else next_pc=32'b0;
   end
-  else pcreg   <=32'b00;
-end 
+  always_ff @(posedge clk) begin
+    if(reset) begin
+          pcreg <= next_pc; 
+    end
+    else pcreg   <=32'b00;
+  end 
   // calling all the modules (accept memories)to connect them with top module//
   
   cu controlunit(

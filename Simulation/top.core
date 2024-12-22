@@ -1,8 +1,8 @@
 CAPI=2:
-name : ::top:1.0
+name : RV32I
 
 filesets:
-  risc:
+  riscv32i:
     files:
       - src/alu.sv
       - src/branchalu.sv
@@ -26,11 +26,11 @@ filesets:
 
 targets:
   default: &default
-    filesets: [risc]
+    filesets: [riscv32i]
 
   sim:
     default_tool: verilator
-    filesets: [risc, tb]
+    filesets: [riscv32i, tb]
     parameters: 
       - vcd
       - vcd_start

@@ -31,33 +31,35 @@ memories (host to device) and viseversa.
 After interconnecting whole processor it is tested on verilator and questa so far.
 
 ## SIMULATION
-To run the Simulation :
 1) Clone the repo.
-3) Go to simulation dir :
+2) Go to simulation dir :
    ```
    cd Simulation
    ```
 ### To run on Verilator using FuseSoC
-4) ```
-   fusesoc --cores-root=. run --target=sim top --vcd --timeout 100000
+First, do install [FuseSoC](https://fusesoc.readthedocs.io/en/stable/user/installation.html) if you don't have already.
+
+3) ```
+   fusesoc --cores-root=. run --target=sim RV32I --vcd --timeout 1000000
    ```
-5) To see static waveform output on gtk-wave :
+4) To see static waveform output on gtk-wave :
    ``` cd build/top_1.0/sim-verilator ```
    ``` gtkwave trace.vcd ```
 ### To run UVM verification using Questa
-4) ```
+5) ```
    make sim
    ```
-5) For GUI based simulation
+6) For GUI based simulation
    ```
    make simgui
    ```
+Note: change the mem file path in ```Simulation/src/i_mem.sv``` from ```./../../../inst.mem``` to ```./inst.mem```.
 ## To run jaspergold
-4) ```
+7) ```
    jg jaspergold.tcl
    ```
 
 ## Sample Tests
-There's a folder in ```Simulation/rtl/tests``` which contains the assembly tests, 
-convert them into hex using (venus)[https://venus.kvakil.me/] and as above mentioned 
+There's a folder in ```Simulation/src/tests``` which contains the assembly tests, 
+convert them into hex using [venus](https://venus.kvakil.me/) and as above mentioned 
 update the hex file path in   ```inst.mem``` and run.

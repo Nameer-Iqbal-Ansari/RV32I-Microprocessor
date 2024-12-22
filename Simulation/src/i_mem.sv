@@ -16,8 +16,8 @@ module i_mem #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 12) (
 localparam MEM_DEPTH = 4096;
 logic  [8-1:0]     sram [MEM_DEPTH-1:0];
 
-  assign readData = (readEnable && reset)? {sram[readAddress],sram[readAddress+1],sram[readAddress+2],sram[readAddress+3]} : 32'b0;
+  assign readData = (readEnable && reset)? {sram[readAddress+3],sram[readAddress+2],sram[readAddress+1],sram[readAddress]} : 32'b0;
   initial begin
-    $readmemh("inst.mem",sram);
+    $readmemh("./../../../inst.mem",sram);
   end
 endmodule

@@ -37,27 +37,35 @@ vluint64_t vcd_start = 0;
     my_top->reset = 1; // Set some inputs
     while (!Verilated::gotFinish()) {
 
-        if (vcd_file && !dump && (main_time > vcd_start)) dump = true;
+        if (vcd_file && !dump && !(main_time >= timeout)) dump = true;
         if (main_time > 10) my_top->reset = 1;
         else my_top->reset = 0;
         
         my_top->eval();
 
         if (dump)  vcd_file->dump(main_time);
-        
-        if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[0xffb]==0xdeadbeaf) { // temp to host value and address
+        if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[4092]==0xaf &&
+            my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[4093]==0xbe &&
+            my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[4094]==0xad &&
+            my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[4095]==0xde) {
           my_top->reset = 0;
-	        printf("\n\033[32m=========================================\033[0m\n\033[32m===============TEST PASSED===============\033[0m\n\033[32m=========================================\033[0m\n");
+          printf("\n\033[32m=========================================\033[0m\n");
+          printf("\033[32m===============TEST PASSED===============\033[0m\n");
+          printf("\033[32m=========================================\033[0m\n");
           break;
         }
-        else if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[0xffb]==0) { // temp to host value and address
+        else if (my_top->top_main__DOT__data_mem_adapter__DOT__data_m__DOT__sram[4092]==0x1) { // temp to host value and address
           my_top->reset = 0;
-	        printf("\n\033[31m=========================================\033[0m\n\033[31m===============TEST FAILED===============\033[0m\n\033[31m=========================================\033[0m\n");
+          printf("\n\033[31m=========================================\033[0m\n");
+          printf("\033[31m===============TEST FAILED===============\033[0m\n");
+          printf("\033[31m=========================================\033[0m\n");
           break;
         }
         else if (main_time >= timeout) {
           my_top->reset = 0;
-	        printf("\n\033[31m=========================================\033[0m\n\033[31m===============TEST TIMEOUT==============\033[0m\n\033[31m=========================================\033[0m\nExiting at time %lu\n", main_time);
+          printf("\n\033[31m=========================================\033[0m\n");
+          printf("\033[31m===============TEST TIMEDOUT=============\033[0m\n");
+          printf("\033[31m=========================================\033[0m\n");
           break;
 	      }
         

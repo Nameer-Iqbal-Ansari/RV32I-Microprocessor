@@ -26,8 +26,10 @@ module tb_top;
         join_none 
         forever @(posedge clk)
         begin
-            tohost_data  <= {dut_core.data_mem_adapter.data_m.sram[12'hffb],dut_core.data_mem_adapter.data_m.sram[12'hffc],
-                             dut_core.data_mem_adapter.data_m.sram[12'hffd],dut_core.data_mem_adapter.data_m.sram[12'hffe]}; 
+            tohost_data  <= {dut_core.data_mem_adapter.data_m.sram[12'd4095],
+                             dut_core.data_mem_adapter.data_m.sram[12'd4094],
+                             dut_core.data_mem_adapter.data_m.sram[12'd4093],
+                             dut_core.data_mem_adapter.data_m.sram[12'd4092]}; 
             if(tohost_data==32'hdeadbeaf)
             begin
                 $display("\n\033[32m=========================================\033[0m");
@@ -35,14 +37,14 @@ module tb_top;
                 $display("\033[32m=========================================\033[0m\n");
                 break;
             end
-            else if(tohost_data==32'd0)
+            else if(tohost_data==32'd1)
             begin
                 $display("\n\033[31m=========================================\033[0m");
                 $display("\033[31m===============TEST FAILED===============\033[0m");
                 $display("\033[31m=========================================\033[0m\n");
                 break;
             end
-            else if($time>100000)
+            else if($time>100000)//TODO: add custom timeout
             begin
                 $display("\n\033[31m=========================================\033[0m");
                 $display("\033[31m===============TEST TIMEDOUT=============\033[0m");

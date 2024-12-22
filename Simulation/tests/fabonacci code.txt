@@ -15,11 +15,11 @@ start:
     bne x10, x20, start
 lw  x11, (0xff)x0
 beq x11, x12, pass
-addi x31, x0,0 # to host register write
+addi x31, x0,1 # to host register write
 jal to_host
 pass: 
 lui x31, 0xdeadb
-addi x19,x19,0x757
+li x19,0x757
 addi x19,x19,0x758
 or x31, x31, x19
 to_host:
